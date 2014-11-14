@@ -1,6 +1,7 @@
 README.md
 =======
 Collection of scripts which maybe helpful for engagements.
+Made and should work in Kali.
 
 Setup.sh
 ======

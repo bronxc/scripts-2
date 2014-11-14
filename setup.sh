@@ -171,7 +171,9 @@ echo -e "${YELLOW}[+] tcpdump , sniffers etc.${RESET}"
 #sudo ./configure
 #$ sudo make
 #$ sudo make install
-apt-get install tcpdump wireshark ngrep -y#ettercap?
+apt-get install tcpdump -y
+apt-get install wireshark -y
+apt-get install ngrep -y
 git clone https://github.com/superkojiman/snuff/blob/master/snuff.sh #mitm, sslstrip and arp
 }
 
@@ -327,7 +329,6 @@ post_exploit()
 git clone https://github.com/mubix/post-exploitation.git
 git clone https://github.com/rsmudge/metasploit-loader #rsmudge metasploit loader
 git clone https://github.com/ChrisTruncer/EyeWitness.git #eyewitness to scan web servers try default creds and take screenshots
-git clone https://github.com/Veil-Framework/Veil.git
 
 }
 
@@ -354,8 +355,13 @@ clamav()
 
 powershell()
 {
+mkdir powershell
+cd powershell
 git clone https://github.com/HarmJ0y/PowerUp
 git clone https://github.com/samratashok/nishang
+git clone https://github.com/clymb3r/PowerSploit
+git clone https://github.com/Veil-Framework/Veil.git
+cd ..
 }
 
 #echo -e "${BLUE}[+] NoteCase"
@@ -408,6 +414,7 @@ common_exploits;
 java;
 labs;
 post_exploit;
+powershell;
 shellshock;
 heartbleed;
 nvidia;

@@ -2,8 +2,8 @@
 #Script to generate reverse payload and launch multihandler from metasploit
 #Usage ./script port
 #by n0b1dy
-if [ $# -ne 4 ]; then
-echo "[*]Usage: $0 <port> <e(X)e|(P)hp|(D)ll> <filename> <eth{1}|{tap0}> <(H)http|(S)https | Default tcp>"
+if [ $# -ne 5 ]; then
+echo "[*]Usage: $0 <port> <e(X)e|(P)hp|(D)ll> <filename> <eth{1}|{tap0}> <(H)http|(S)https | (T) Default tcp>"
 exit
 fi
 start=`date`

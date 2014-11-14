@@ -244,6 +244,7 @@ cd ..
 ssl()
 {
 git clone https://github.com/drwetter/testssl.sh
+git clone https://github.com/google/nogotofail
 }
 
 servers(){

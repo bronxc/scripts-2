@@ -2,7 +2,8 @@
 # nob1dy 2014
 # Script to automate setting up additional tools and pre-requisites for Debian/Kali based systems 
 # tested and works with Kali and Debian - yes
-# TODO: Tidy up and clean up
+# TODO: Tidy up and clean up - Comment code and add arguments
+# Add usage etc.
 
 RED="\e[0;31m"
 GREEN="\e[0;32m"

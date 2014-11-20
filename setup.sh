@@ -142,6 +142,8 @@ apt-get install filezilla filezilla-common -y
 #}
 password(){
 apt-get install john -y 
+#download and have noobify for quick l337 of words
+iceweasel https://sites.google.com/site/reusablesec/Home/password-cracking-tools/noobify
 }
 wireless(){
 ######### wireless
@@ -248,6 +250,10 @@ ssl()
 {
 git clone https://github.com/drwetter/testssl.sh
 git clone https://github.com/google/nogotofail
+
+# for rdp sec
+
+perl -MCPAN -e "install Convert::BER"
 }
 
 servers(){

@@ -45,7 +45,7 @@ $EXEC -sS -T4 -v --reason -A $ip -oA $DIR/$REPORT.$ip.syn 2>/dev/null
 echo -e "$GREEN [+]udp nmap scan $ip $RESET"
 $EXEC -sU -F -v -sV --reason $ip -oA $DIR/$REPORT.$ip.udp 2>/dev/null
 echo -e "$GREEN [+]udp-proto-scan $RESET"
-$UDPPROTO -f $ip > $DIR/$REPORT.$ip.udp.proto 2>/dev/null
+#$UDPPROTO -f $ip > $DIR/$REPORT.$ip.udp.proto 2>/dev/null
 echo -e "$GREEN [+]syn full nmap scan $ip $RESET"
 $EXEC -sS -T4 -v -p- --reason -A $ip -oA $DIR/$REPORT.$ip.full.syn 2>/dev/null
 

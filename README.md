@@ -48,5 +48,8 @@ Wrapper to invoke tools such as medusa
 **Windows Command Line**
 
 * domainbrute.bat # Command line script to perform intelligent bf attack
+ 
+**Web Attacks**
+* myshell.php # web shell tested and working on linux hosts.
 
 

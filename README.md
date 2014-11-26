@@ -37,10 +37,10 @@ vlancheck.sh # quick nmap wrapper to check ports and hosts accessible from one V
 Metasploit
 =====
 Scripts to invoke psexec and known metasploit remote code exploits for quick execution
-  #psfetch.sh
-  #fetch.sh
-  #autometerpreter.rc # resource for meterpreter to run after establish a session. It is generated from fetch.sh
-  #mass_smart.rc # resource to run for every meterpreter session
+psfetch.sh
+fetch.sh
+autometerpreter.rc # resource for meterpreter to run after establish a session. It is generated from fetch.sh
+mass_smart.rc # resource to run for every meterpreter session
 
 Wrappers 
 =====

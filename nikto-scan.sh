@@ -1,5 +1,6 @@
 #!/bin/bash
-
+# by n0b1dy
+# script to launch nikto , hoppy and some simple web app checks against a targets file with ips
 
 RED="\e[0;31m"
 GREEN="\e[0;32m"

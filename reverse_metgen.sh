@@ -1,5 +1,6 @@
 #!/bin/bash
 #Script to generate reverse payload and launch multihandler from metasploit
+#tested and working in Kali linux
 #Usage ./script port
 #by n0b1dy
 

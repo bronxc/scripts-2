@@ -58,5 +58,7 @@ msgline
   echo -n "$port, ">> $output.open.nessus
   done
 cat $output.open.nessus
+echo ""
+success "Files $output.open.nessus and $output.open have beeen created"
 exit
 fi

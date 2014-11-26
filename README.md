@@ -46,4 +46,9 @@ Wrappers
 Wrapper to invoke tools such as medusa
 medusa.sh 
 
+Windows Command Line
+=====
+
+domainbrute.bat # Command line script to perform intelligent bf attack
+
 

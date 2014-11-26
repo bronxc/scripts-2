@@ -6,6 +6,7 @@ Made and should work in Kali.
 Work in progress, some bad coding out there. :D
 
 **Setup.sh**
+
 Script to set up additional tools and dependencies on kali/debian based systems.
 Useful for a quick out of the box deployment for Kali Linux on a physical machine or VM.
 
@@ -38,7 +39,7 @@ Scripts to invoke psexec and known metasploit remote code exploits for quick exe
 * autometerpreter.rc # resource for meterpreter to run after establish a session. It is generated from fetch.sh
 * mass_smart.rc # resource to run for every meterpreter session
 
-**Wrappers **
+**Wrappers**
 
 Wrapper to invoke tools such as medusa
 * medusa.sh 

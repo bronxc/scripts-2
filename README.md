@@ -32,6 +32,7 @@ Nmap Scanning
 Automates nmap scans WIP
 nmap-full.sh
 open.sh # reads from a nmap file and displays open ports and ports in a format to be fed in Nessus
+vlancheck.sh # quick nmap wrapper to check ports and hosts accessible from one VLAN to another VLAN 
 
 Metasploit
 =====

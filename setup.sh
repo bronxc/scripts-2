@@ -55,6 +55,7 @@ prereqs()
   apt-get install tshark -y
   apt-get install screen -y
   apt-get install ethtool -y # frogger
+  apt-get install ccze -y
   nmap --script-update
   echo -e "${IBLUE}[*] Perform the following: Application Menu -> Settings -> Appearance (default font size - 10 - changed to 13)${RESET}"
   echo -e "${IBLUE}[*] Terminal Font - default 12 -> 13, set to transparent background , changed font color to white${RESET}"
@@ -70,7 +71,7 @@ echo -e "${GREEN}[*]Setting up $(hostname)[laptop]\n$(uname -a) at $start ${RESE
 sleep 2
 echo -e "${RED}[+]Install Updates${RESET}"
 apt-get update && apt-get upgrade -y
-apt-get update iftop htop mlocate
+apt-get install iftop htop mlocate -y
 
 sleep 2
 }

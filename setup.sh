@@ -425,5 +425,5 @@ post_exploit;
 powershell;
 shellshock;
 heartbleed;
-nvidia;
+#nvidia;
 clamav;

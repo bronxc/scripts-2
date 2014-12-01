@@ -41,13 +41,13 @@ nmap_loop()
 for ip in $(cat $TARGET)
 do
 echo -e "$GREEN [+]syn nmap scan $ip $RESET"
-$EXEC -sS -T4 -v --reason -A $ip -oA $DIR/$REPORT.$ip.syn 2>/dev/null
+$EXEC -sS -T4 -v -Pn --reason -A $ip -oA $DIR/$REPORT.$ip.syn 2>/dev/null
 echo -e "$GREEN [+]udp nmap scan $ip $RESET"
-$EXEC -sU -F -v -sV --reason $ip -oA $DIR/$REPORT.$ip.udp 2>/dev/null
+$EXEC -sU -F -v -Pn -sV --reason $ip -oA $DIR/$REPORT.$ip.udp 2>/dev/null
 echo -e "$GREEN [+]udp-proto-scan $RESET"
 #$UDPPROTO -f $ip > $DIR/$REPORT.$ip.udp.proto 2>/dev/null
 echo -e "$GREEN [+]syn full nmap scan $ip $RESET"
-$EXEC -sS -T4 -v -p- --reason -A $ip -oA $DIR/$REPORT.$ip.full.syn 2>/dev/null
+$EXEC -sS -T4 -v -Pn -p- --reason -A $ip -oA $DIR/$REPORT.$ip.full.syn 2>/dev/null
 
 done
 }
@@ -57,23 +57,23 @@ done
 network_scans()
 {
     #$EXEC -sS -Pn -A -vv --reason -iL $TARGET -oA $DIR/$REPORT.tcp
-    echo -e "$GREEN [+] Syn Scan "
+   # echo -e "$GREEN [+] Syn Scan "
     nmap_loop;
-    for ip in $(cat $TARGET)
-    do
-    cat $DIR/$REPORT.$ip.full.syn >> $DIR/$REPORT.tcp.nmap
-    done
-	cat $DIR/$REPORT.tcp.nmap | grep "open" | cut -d/ -f1 | grep -v "Warning" | sort -n | uniq > $DIR/$REPORT.tcp.open
-	echo -e "$GREEN [+]Open TCP Ports $RESET"
-	cat $DIR/$REPORT.tcp.open
-	cat $DIR/$REPORT.tcp.nmap | grep "filtered" | cut -d/ -f1 | grep -v "Warning" | sort -n | uniq > $DIR/$REPORT.tcp.filtered
-	echo -e "$ORANGE [+]Filtered TCP Ports $RESET"
-	cat $DIR/$REPORT.tcp.filtered
-	cat $DIR/$REPORT.tcp.nmap | grep "closed" | cut -d/ -f1 | grep -v "Warning" | sort -n | uniq > $DIR/$REPORT.tcp.closed
-	echo -e "$RED [+]Closed TCP Ports $RESET"
-	cat $DIR/$REPORT.tcp.filtered
+   # for ip in $(cat $TARGET)
+   # do
+   # cat $DIR/$REPORT.$ip.full.syn >> $DIR/$REPORT.tcp.nmap
+   # done
+#	cat $DIR/$REPORT.tcp.nmap | grep "open" | cut -d/ -f1 | grep -v "Warning" | sort -n | uniq > $DIR/$REPORT.tcp.open
+#	echo -e "$GREEN [+]Open TCP Ports $RESET"
+#	cat $DIR/$REPORT.tcp.open
+#	cat $DIR/$REPORT.tcp.nmap | grep "filtered" | cut -d/ -f1 | grep -v "Warning" | sort -n | uniq > $DIR/$REPORT.tcp.filtered
+#	echo -e "$ORANGE [+]Filtered TCP Ports $RESET"
+#	cat $DIR/$REPORT.tcp.filtered
+#	cat $DIR/$REPORT.tcp.nmap | grep "closed" | cut -d/ -f1 | grep -v "Warning" | sort -n | uniq > $DIR/$REPORT.tcp.closed
+#	echo -e "$RED [+]Closed TCP Ports $RESET"
+#	cat $DIR/$REPORT.tcp.filtered
 	#echo -e "$GREEN [+]Perform Thorough Syn Scan "
-	nmap_loop;
+#	nmap_loop;
 	#$EXEC -sS -T4 --reason -A -p- -iL $TARGET -oA $DIR/$REPORT.full 1> /dev/null
 }
 

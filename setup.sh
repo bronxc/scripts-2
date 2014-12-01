@@ -376,7 +376,8 @@ virtual_machine_kvm()
 {
 
 apt-get install virt-manager -y
-
+apt-get install libvirt-bin
+apt-get install virt-goodies
 }
 
 #echo -e "${BLUE}[+] NoteCase"

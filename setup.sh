@@ -372,6 +372,13 @@ git clone https://github.com/Veil-Framework/Veil.git
 cd ..
 }
 
+virtual_machine_kvm()
+{
+
+apt-get install virt-manager -y
+
+}
+
 #echo -e "${BLUE}[+] NoteCase"
 #apt-get install notecase -y
 #echo "Make downloads directory"
@@ -427,3 +434,4 @@ shellshock;
 heartbleed;
 #nvidia;
 clamav;
+#virtual_machine_kvm;

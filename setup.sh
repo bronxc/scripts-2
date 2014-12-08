@@ -337,6 +337,7 @@ post_exploit()
 
 git clone https://github.com/mubix/post-exploitation.git
 git clone https://github.com/mubix/ditto
+git clone https://github.com/bidord/pykek
 git clone https://github.com/rsmudge/metasploit-loader #rsmudge metasploit loader
 git clone https://github.com/ChrisTruncer/EyeWitness.git #eyewitness to scan web servers try default creds and take screenshots
 

@@ -329,6 +329,7 @@ cd smb_tools
 echo -e "${BLUE}[+] SMBEXEC and RESPONDER"
 git clone https://github.com/brav0hax/smbexec.git
 git clone https://github.com/SpiderLabs/Responder.git
+git clone https://github.com/mubix/FakeNetBIOS
 cd ..
 }
 
@@ -336,6 +337,7 @@ post_exploit()
 {
 
 git clone https://github.com/mubix/post-exploitation.git
+git clone https://github.com/mubix/post-exploitation-wiki
 git clone https://github.com/mubix/ditto
 git clone https://github.com/bidord/pykek
 git clone https://github.com/rsmudge/metasploit-loader #rsmudge metasploit loader

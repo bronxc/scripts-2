@@ -149,6 +149,8 @@ password(){
 apt-get install john -y 
 #download and have noobify for quick l337 of words
 iceweasel https://sites.google.com/site/reusablesec/Home/password-cracking-tools/noobify
+#korelogic rules
+wget http://contest-2010.korelogic.com/rules.txt -O korelogic-rules-forjohn.txt
 }
 wireless(){
 ######### wireless

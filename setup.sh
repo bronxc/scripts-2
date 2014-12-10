@@ -56,6 +56,9 @@ prereqs()
   apt-get install screen -y
   apt-get install ethtool -y # frogger
   apt-get install ccze -y
+  dpkg --add-architecture i386
+  apt-get install wine -y # for wine when installed on 64bit
+  apt-get install wine-bin:i386  
   nmap --script-update
   echo -e "${IBLUE}[*] Perform the following: Application Menu -> Settings -> Appearance (default font size - 10 - changed to 13)${RESET}"
   echo -e "${IBLUE}[*] Terminal Font - default 12 -> 13, set to transparent background , changed font color to white${RESET}"

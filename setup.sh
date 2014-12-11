@@ -379,6 +379,7 @@ git clone https://github.com/HarmJ0y/PowerUp
 git clone https://github.com/samratashok/nishang
 git clone https://github.com/clymb3r/PowerSploit
 git clone https://github.com/Veil-Framework/Veil.git
+git clone https://github.com/trustedsec/unicorn.git
 cd ..
 }
 

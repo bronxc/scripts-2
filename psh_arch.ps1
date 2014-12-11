@@ -12,7 +12,6 @@ $url=$server
 if ($env:Processor_Architecture -ne "x86") 
 { 
 write-warning "This is 64x, switching to 32x and continuing script." 
-
 #$bytes = [System.Text.Encoding]::Unicode.GetBytes($command)
 #$encodedCommand = [Convert]::ToBase64String($bytes)
 Write-host "Executing script from $url" -foregroundcolor "green" 

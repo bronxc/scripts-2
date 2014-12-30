@@ -378,8 +378,12 @@ cd powershell
 git clone https://github.com/HarmJ0y/PowerUp
 git clone https://github.com/samratashok/nishang
 git clone https://github.com/clymb3r/PowerSploit
+git clone https://github.com/mattifestation/PowerSploit.git
+git clone https://github.com/PyroTek3/PowerShell-AD-Recon.git
 git clone https://github.com/Veil-Framework/Veil.git
 git clone https://github.com/trustedsec/unicorn.git
+git clone https://github.com/enigma0x3/Powershell-Payload-Excel-Delivery.git
+git clone https://github.com/enigma0x3/psh_web_delivery-Macro_Delivery.git
 cd ..
 }
 
@@ -391,37 +395,6 @@ apt-get install libvirt-bin -y
 apt-get install ssh-askpass -y
 apt-get install virt-goodies -y
 }
-
-#echo -e "${BLUE}[+] NoteCase"
-#apt-get install notecase -y
-#echo "Make downloads directory"
-
-
-
-#wget http://wkhtmltopdf.googlecode.com/files/wkhtmltoimage-0.11.0_rc1-static-i386.tar.bz2
-#tar -jxvf wkhtmltoimage-0.11.0_rc1-static-i386.tar.bz2
-#cp wkhtmltoimage-i386 /usr/local/bin/
-# wget https://github.com/SpiderLabs/Nmap-Tools/blob/master/NSE/http-screenshot.nse -O /usr/share/nmap/scripts/http-screenshot.nse
-#mkdir loki
-#cd loki
-#wget http://www.ernw.de/download/loki/loki-0.2.7.tar.gz
-#wget http://www.ernw.de/download/loki/ubuntu-11.04/loki_0.2.7-1_amd64.deb
-#wget https://www.c0decafe.de/loki/loki-0.2.4.tar.gz
-#wget https://www.c0decafe.de/loki/loki-0.2.4-bt4.diff
-#wget http://www.packetstan.com/2011/02/running-loki-on-backtrack-4-r2.html
-#cd ..
-#wget https://raw.github.com/darkoperator/Metasploit-Plugins/master/pentest.rb -o /opt/metasploit/msf3/plugins/
-#wget https://github.com/darkoperator/MDNSRecon/blob/master/mdnsrecon.rb -o /pentest/enumeration/dns/
-#wget http://fpdownload.macromedia.com/get/flashplayer/pdc/11.1.102.63/install_flash_player_11_linux.i386.tar.gz
-#tar xvzf install_flash_player_11_linux.i386.tar.gz
-#mkdir ~/.mozilla/plugins
-#cd /opt
-
-
-#display_usage;
-#if [ $KALI == 1 ]; then
-#kali_set_up;
-#fi
 
 
 
@@ -446,5 +419,5 @@ powershell;
 shellshock;
 heartbleed;
 #nvidia;
-clamav;
+#clamav;
 #virtual_machine_kvm;

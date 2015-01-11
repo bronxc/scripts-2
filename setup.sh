@@ -349,6 +349,9 @@ git clone https://github.com/rsmudge/metasploit-loader #rsmudge metasploit loade
 git clone https://github.com/ChrisTruncer/EyeWitness.git #eyewitness to scan web servers try default creds and take screenshots
 git clone https://github.com/GDSSecurity/Windows-Exploit-Suggester.git
 git clone https://github.com/gentilkiwi/mimikatz.git
+git clone https://github.com/SherifEldeeb/inmet.git
+git clone https://github.com/SherifEldeeb/TinyMet.git
+
 }
 
 shellshock()

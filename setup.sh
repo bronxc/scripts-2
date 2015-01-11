@@ -351,6 +351,7 @@ git clone https://github.com/GDSSecurity/Windows-Exploit-Suggester.git
 git clone https://github.com/gentilkiwi/mimikatz.git
 git clone https://github.com/SherifEldeeb/inmet.git
 git clone https://github.com/SherifEldeeb/TinyMet.git
+git clone https://github.com/webstersprodigy/webstersprodigy.git
 
 }
 

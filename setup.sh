@@ -353,6 +353,7 @@ git clone https://github.com/SherifEldeeb/inmet.git
 git clone https://github.com/SherifEldeeb/TinyMet.git
 git clone https://github.com/webstersprodigy/webstersprodigy.git
 git clone https://github.com/iagox86/dnscat2.git
+git clone https://github.com/nccgroup/WebFEET.git
 
 }
 

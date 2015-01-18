@@ -91,8 +91,20 @@ apt-get install beef-xss -y
 apt-get install kate -y
 #echo -e "${BLUE}[+] Open Office"
 #apt-get install openoffice.org -y
-}
+# add to /etc/apt/sources.list
 
+#deb-src http://security.kali.org/kali-security kali/updates main contrib non-free
+#deb http://http.kali.org/kali kali main non-free contrib
+#deb-src http://http.kali.org/kali kali main non-free contrib
+#deb http://http.kali.org/ /kali main contrib non-free
+#deb http://http.kali.org/ /wheezy main contrib non-free
+#deb http://http.kali.org/kali kali-dev main contrib non-free
+#deb-src http://http.kali.org/kali kali-dev main contrib non-free
+#deb http://http.kali.org/kali kali-dev main/debian-installer
+#deb http://http.kali.org/kali kali main/debian-installer
+#deb http://repo.kali.org/kali kali-bleeding-edge main 
+
+}
 nvidia()
 {
 echo test
@@ -133,7 +145,9 @@ clients(){
 echo -e "${YELLOW}[+] finger${RESET}"
 apt-get install finger -y
 echo -e "${YELLOW}[+] rlogin,rsh client, putty,tftp, filezilla${RESET}"
-apt-get install rsh-client rwho putty -y
+apt-get install rsh-client -y
+apt-get install putty -y
+apt-get install rwho -y
 apt-get install tftp -y
 apt-get install filezilla filezilla-common -y
 }
@@ -340,18 +354,25 @@ cd ..
 
 post_exploit()
 {
-
+mkdir mubix
+cd mubix
 git clone https://github.com/mubix/post-exploitation.git
 git clone https://github.com/mubix/post-exploitation-wiki
 git clone https://github.com/mubix/ditto
+cd ..
+
 git clone https://github.com/bidord/pykek
-git clone https://github.com/rsmudge/metasploit-loader #rsmudge metasploit loader
+
 git clone https://github.com/ChrisTruncer/EyeWitness.git #eyewitness to scan web servers try default creds and take screenshots
 git clone https://github.com/GDSSecurity/Windows-Exploit-Suggester.git
 git clone https://github.com/gentilkiwi/mimikatz.git
+mkdir meterpreter_loaders
+cd meterpreter_loaders
+git clone https://github.com/rsmudge/metasploit-loader #rsmudge metasploit loader
 git clone https://github.com/SherifEldeeb/inmet.git
 git clone https://github.com/SherifEldeeb/TinyMet.git
-git clone https://github.com/webstersprodigy/webstersprodigy.git
+cd ..
+
 git clone https://github.com/iagox86/dnscat2.git
 git clone https://github.com/nccgroup/WebFEET.git
 
@@ -384,13 +405,17 @@ mkdir powershell
 cd powershell
 git clone https://github.com/HarmJ0y/PowerUp
 git clone https://github.com/samratashok/nishang
-git clone https://github.com/clymb3r/PowerSploit
 git clone https://github.com/mattifestation/PowerSploit.git
 git clone https://github.com/PyroTek3/PowerShell-AD-Recon.git
 git clone https://github.com/Veil-Framework/Veil.git
 git clone https://github.com/trustedsec/unicorn.git
+cd ..
+mkdir macros
+cd macros
 git clone https://github.com/enigma0x3/Powershell-Payload-Excel-Delivery.git
 git clone https://github.com/enigma0x3/psh_web_delivery-Macro_Delivery.git
+git clone https://github.com/webstersprodigy/webstersprodigy.git
+cd ..
 cd ..
 }
 
@@ -410,10 +435,11 @@ prereqs;
 set_up;
 clients;
 servers;
-ssl;
+#ssl;
 sniffers;
 scanning;
 smb;
+kali_set_up;
 #arp_ike_scan;
 #virtualbox;
 optional;

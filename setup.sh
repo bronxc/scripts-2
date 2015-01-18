@@ -428,7 +428,12 @@ apt-get install ssh-askpass -y
 apt-get install virt-goodies -y
 }
 
-
+recon()
+{
+git clone https://github.com/Easy-Forex/Verify-emails
+git clone https://github.com/samwize/pyExtractor.git
+	
+}
 
 
 prereqs;
@@ -451,6 +456,7 @@ post_exploit;
 powershell;
 shellshock;
 heartbleed;
+recon;
 #nvidia;
 #clamav;
 #virtual_machine_kvm;

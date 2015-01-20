@@ -357,7 +357,7 @@ post_exploit()
 mkdir mubix
 cd mubix
 git clone https://github.com/mubix/post-exploitation.git
-git clone https://github.com/mubix/post-exploitation-wiki
+git clone https://github.com/pwnwiki/pwnwiki.github.io.git
 git clone https://github.com/mubix/ditto
 cd ..
 

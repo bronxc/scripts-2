@@ -409,6 +409,7 @@ git clone https://github.com/mattifestation/PowerSploit.git
 git clone https://github.com/PyroTek3/PowerShell-AD-Recon.git
 git clone https://github.com/Veil-Framework/Veil.git
 git clone https://github.com/trustedsec/unicorn.git
+git clone https://github.com/silentsignal/wpc-ps.git
 cd ..
 mkdir macros
 cd macros

@@ -411,6 +411,7 @@ git clone https://github.com/Veil-Framework/Veil.git
 git clone https://github.com/trustedsec/unicorn.git
 git clone https://github.com/silentsignal/wpc-ps.git
 git clone https://github.com/b00stfr3ak/fast_meterpreter
+git clone https://github.com/obscuresec/random/blob/master/EncodeShell.py
 cd ..
 mkdir macros
 cd macros

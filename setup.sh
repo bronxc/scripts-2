@@ -376,6 +376,8 @@ cd ..
 git clone https://github.com/iagox86/dnscat2.git
 git clone https://github.com/nccgroup/WebFEET.git
 
+git clone https://github.com/rebootuser/LinEnum.git
+
 }
 
 shellshock()

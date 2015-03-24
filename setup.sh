@@ -378,6 +378,7 @@ git clone https://github.com/nccgroup/WebFEET.git
 
 git clone https://github.com/rebootuser/LinEnum.git
 
+
 }
 
 shellshock()
@@ -414,6 +415,7 @@ git clone https://github.com/trustedsec/unicorn.git
 git clone https://github.com/silentsignal/wpc-ps.git
 git clone https://github.com/b00stfr3ak/fast_meterpreter
 git clone https://github.com/obscuresec/random/blob/master/EncodeShell.py
+git clone https://github.com/nullbind/Powershellery/blob/master/Stable-ish/Get-SPN/Get-SPN.psm1
 
 cd ..
 mkdir macros

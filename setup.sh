@@ -449,6 +449,7 @@ webapp()
 mkdir webapp
 cd webapp
 git clone https://github.com/maurosoria/dirs3arch.git	
+git clone https://github.com/m101/lfipwn/blob/master/lfipwn.py
 cd ..	
 }
 

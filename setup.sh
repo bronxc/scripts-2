@@ -75,6 +75,7 @@ sleep 2
 echo -e "${RED}[+]Install Updates${RESET}"
 apt-get update && apt-get upgrade -y
 apt-get install iftop htop mlocate -y
+apt-get install dia -y
 
 sleep 2
 }
@@ -266,6 +267,13 @@ cd ..
 
 
 }
+
+linux_post()
+{
+git clone https://github.com/rebootuser/LinEnum.git
+	
+}
+
 
 ssl()
 {

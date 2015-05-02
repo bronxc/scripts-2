@@ -76,6 +76,7 @@ echo -e "${RED}[+]Install Updates${RESET}"
 apt-get update && apt-get upgrade -y
 apt-get install iftop htop mlocate -y
 apt-get install dia -y
+apt-get install terminator -y
 
 sleep 2
 }

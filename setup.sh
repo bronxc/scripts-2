@@ -77,6 +77,8 @@ apt-get update && apt-get upgrade -y
 apt-get install iftop htop mlocate -y
 apt-get install dia -y
 apt-get install terminator -y
+apt-get install cairo-dock -y
+apt-get install guake -y
 
 sleep 2
 }

@@ -274,6 +274,7 @@ cd ..
 linux_post()
 {
 git clone https://github.com/rebootuser/LinEnum.git
+git clone https://github.com/dwin999/ptscripts/blob/master/revershelloneliners.sh
 	
 }
 

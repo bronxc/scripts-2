@@ -466,6 +466,15 @@ git clone https://github.com/m101/lfipwn/blob/master/lfipwn.py
 cd ..	
 }
 
+news()
+{
+	mkdir news
+	cd news
+	git clone https://github.com/fdiskyou/feedme
+	cd ..
+	
+}
+
 
 prereqs;
 set_up;
@@ -489,6 +498,7 @@ shellshock;
 heartbleed;
 recon;
 webapp;
+news;
 #nvidia;
 #clamav;
 #virtual_machine_kvm;

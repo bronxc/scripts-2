@@ -394,6 +394,14 @@ git clone https://github.com/rebootuser/LinEnum.git
 
 }
 
+egress()
+{
+	mkdir egress
+	git clone https://github.com/trustedsec/egressbuster
+	cd ..
+	
+}
+
 shellshock()
 {
 

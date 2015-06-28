@@ -212,7 +212,9 @@ echo -e "${YELLOW}[+] arp-scan${RESET}"
 apt-get install arp-scan -y
 echo -e "${YELLOW}[+] ike-scan${RESET}"
 apt-get install ike-scan -y
+git clone https://github.com/SECFORCE/sparta
 #echo -e "${YELLOW}[+] unicorn-scan"
+apt-get install python-elixir
 
 #echo -e "${YELLOW}[+] nbtscan"
 mkdir ./nbtscan

@@ -394,6 +394,16 @@ git clone https://github.com/rebootuser/LinEnum.git
 
 }
 
+thpb2()
+{
+	mkdir thpb2
+	cd thpb2
+	git clone https://github.com/cheetz/PowerTools.git
+	git clone https://github.com/cheetz/c2
+	git clone https://github.com/cheetz/Easy-P.git
+	cd ..
+}
+
 egress()
 {
 	mkdir egress
@@ -437,6 +447,7 @@ git clone https://github.com/silentsignal/wpc-ps.git
 git clone https://github.com/b00stfr3ak/fast_meterpreter
 git clone https://github.com/obscuresec/random/blob/master/EncodeShell.py
 git clone https://github.com/nullbind/Powershellery/blob/master/Stable-ish/Get-SPN/Get-SPN.psm1
+git clone https://github.com/cheetz/Easy-P.git
 
 cd ..
 mkdir macros
@@ -483,6 +494,12 @@ news()
 	
 }
 
+phishing()
+{
+	git clone https://github.com/cheetz/spearphishing
+	git clone https://github.com/Section9Labs/Cartero
+}
+
 
 prereqs;
 set_up;
@@ -507,6 +524,8 @@ heartbleed;
 recon;
 webapp;
 news;
+thpb2;
+phishing;
 #nvidia;
 #clamav;
 #virtual_machine_kvm;

@@ -502,6 +502,13 @@ phishing()
 	git clone https://github.com/Section9Labs/Cartero
 }
 
+lateral()
+{
+	mkdir lateral
+	cd lateral
+	git clone https://github.com/poweradminllc/PAExec
+	cd ..
+}
 
 prereqs;
 set_up;
@@ -529,5 +536,6 @@ news;
 thpb2;
 phishing;
 nvidia;
+lateral;
 #clamav;
 #virtual_machine_kvm;

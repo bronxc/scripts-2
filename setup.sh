@@ -77,8 +77,8 @@ apt-get update && apt-get upgrade -y
 apt-get install iftop htop mlocate -y
 apt-get install dia -y
 apt-get install terminator -y
-apt-get install cairo-dock -y
-apt-get install guake -y
+#apt-get install cairo-dock -y
+#apt-get install guake -y
 
 sleep 2
 }
@@ -91,7 +91,7 @@ kali_set_up()
 echo -e "${BLUE}[+]Updating Metasploit${RESET}"
 msfupdate
 echo -e "${YELLOW}[+] Beef${RESET}"
-apt-get install beef-xss -y
+#apt-get install beef-xss -y
 apt-get install kate -y
 #echo -e "${BLUE}[+] Open Office"
 #apt-get install openoffice.org -y
@@ -113,11 +113,11 @@ nvidia()
 {
 echo test
 #############NVIDIA CHIPSET#######################################
-#echo -e "${PURPLE}[+]Adding NVIDIA repository"
-#add-apt-repository ppa:ubuntu-x-swat/x-updates
-#echo -e "${PURPLE}[+]Setting up Nvidia Drivers "
-#apt-get update && apt-get install nvidia-current nvidia-current-modaliases nvidia-settings
-#echo -e "${GREEN}[i]Reboot and ${BLUE}nvidia-xconfig"
+echo -e "${PURPLE}[+]Adding NVIDIA repository"
+add-apt-repository ppa:ubuntu-x-swat/x-updates
+echo -e "${PURPLE}[+]Setting up Nvidia Drivers "
+apt-get update && apt-get install nvidia-current nvidia-current-modaliases nvidia-settings
+echo -e "${GREEN}[i]Reboot and ${BLUE}nvidia-xconfig"
 }
 
 
@@ -528,6 +528,6 @@ webapp;
 news;
 thpb2;
 phishing;
-#nvidia;
+nvidia;
 #clamav;
 #virtual_machine_kvm;

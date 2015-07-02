@@ -457,6 +457,11 @@ cd macros
 git clone https://github.com/enigma0x3/Powershell-Payload-Excel-Delivery.git
 git clone https://github.com/enigma0x3/psh_web_delivery-Macro_Delivery.git
 git clone https://github.com/webstersprodigy/webstersprodigy.git
+git clone https://github.com/enigma0x3/Generate-Macro.git
+git clone https://github.com/enigma0x3/Powershell-Infection.git
+git clone https://github.com/enigma0x3/PowershellProfile.git
+git clone https://github.com/enigma0x3/Powershell-Infection.git
+git clone https://github.com/enigma0x3/Powershell-C2.git
 cd ..
 cd ..
 }

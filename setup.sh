@@ -450,8 +450,14 @@ git clone https://github.com/b00stfr3ak/fast_meterpreter
 git clone https://github.com/obscuresec/random/blob/master/EncodeShell.py
 git clone https://github.com/nullbind/Powershellery/blob/master/Stable-ish/Get-SPN/Get-SPN.psm1
 git clone https://github.com/cheetz/Easy-P.git
-
+git clone https://github.com/darkoperator/Posh-SecMod.git
+git clone https://github.com/besimorhino/powercat.git
+git clone https://github.com/mattifestation/PowerShellArsenal.git
 cd ..
+mkdir cobalt
+git clone https://github.com/rvrsh3ll/POSH-Commander
+cd ..
+
 mkdir macros
 cd macros
 git clone https://github.com/enigma0x3/Powershell-Payload-Excel-Delivery.git

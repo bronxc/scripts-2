@@ -518,6 +518,7 @@ lateral()
 	mkdir lateral
 	cd lateral
 	git clone https://github.com/poweradminllc/PAExec
+	git clone https://github.com/secabstraction/Create-WMIshell
 	cd ..
 }
 

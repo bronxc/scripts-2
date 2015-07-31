@@ -441,6 +441,7 @@ mkdir powershell
 cd powershell
 git clone https://github.com/HarmJ0y/PowerUp
 git clone https://github.com/samratashok/nishang
+git clone https://github.com/pjhartlieb/post-exploitation.git
 git clone https://github.com/mattifestation/PowerSploit.git
 git clone https://github.com/PyroTek3/PowerShell-AD-Recon.git
 git clone https://github.com/nullbind/Powershellery.git

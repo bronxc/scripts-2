@@ -444,6 +444,7 @@ git clone https://github.com/samratashok/nishang
 git clone https://github.com/pjhartlieb/post-exploitation.git
 git clone https://github.com/mattifestation/PowerSploit.git
 git clone https://github.com/PyroTek3/PowerShell-AD-Recon.git
+git clone https://github.com/silverhack/voyeur
 git clone https://github.com/nullbind/Powershellery.git
 git clone https://github.com/Veil-Framework/Veil.git
 git clone https://github.com/trustedsec/unicorn.git

@@ -74,11 +74,20 @@ apt-get update && apt-get upgrade -y
 apt-get install iftop htop mlocate -y
 apt-get install dia -y
 apt-get install terminator -y
-#apt-get install cairo-dock -y
-#apt-get install guake -y
-
 sleep 2
 }
+
+clients(){
+echo -e "${YELLOW}[+] finger${RESET}"
+apt-get install finger -y
+echo -e "${YELLOW}[+] rlogin,rsh client, putty,tftp, filezilla${RESET}"
+apt-get install rsh-client -y
+apt-get install putty -y
+apt-get install rwho -y
+apt-get install tftp -y
+apt-get install filezilla filezilla-common -y
+}
+
 
 kali_set_up()
 {
@@ -93,7 +102,6 @@ apt-get install kate -y
 #echo -e "${BLUE}[+] Open Office"
 #apt-get install openoffice.org -y
 # add to /etc/apt/sources.list
-
 #deb-src http://security.kali.org/kali-security kali/updates main contrib non-free
 #deb http://http.kali.org/kali kali main non-free contrib
 #deb-src http://http.kali.org/kali kali main non-free contrib
@@ -106,18 +114,6 @@ apt-get install kate -y
 #deb http://repo.kali.org/kali kali-bleeding-edge main 
 
 }
-nvidia()
-{
-echo test
-#############NVIDIA CHIPSET#######################################
-echo -e "${PURPLE}[+]Adding NVIDIA repository"
-add-apt-repository ppa:ubuntu-x-swat/x-updates
-echo -e "${PURPLE}[+]Setting up Nvidia Drivers "
-apt-get update && apt-get install nvidia-current nvidia-current-modaliases nvidia-settings
-echo -e "${GREEN}[i]Reboot and ${BLUE}nvidia-xconfig"
-}
-
-
 
 optional(){
 #############OPTIONAL##############################################
@@ -133,25 +129,15 @@ echo -e "${YELLOW}[+] him"
 apt-get install him -y
 echo -e "${YELLOW}[+] ranger file explorer${RESET}"
 apt-get install ranger -y
-##################################################################
+
 }
 
-virtualbox()
-{
-apt-get install virtualbox virtualbox-guest-x11 virtualbox-guest-utils virtualbox-guest-additions -y
-apt-get install virtualbox-ose-dkms -y
-}
 
-clients(){
-echo -e "${YELLOW}[+] finger${RESET}"
-apt-get install finger -y
-echo -e "${YELLOW}[+] rlogin,rsh client, putty,tftp, filezilla${RESET}"
-apt-get install rsh-client -y
-apt-get install putty -y
-apt-get install rwho -y
-apt-get install tftp -y
-apt-get install filezilla filezilla-common -y
-}
+
+
+
+
+
 
 #android(){
 ######### fix android sdk error (not finding adb)
@@ -277,7 +263,6 @@ git clone https://github.com/dwin999/ptscripts/blob/master/revershelloneliners.s
 	
 }
 
-
 ssl()
 {
 git clone https://github.com/drwetter/testssl.sh
@@ -288,14 +273,7 @@ git clone https://github.com/google/nogotofail
 perl -MCPAN -e "install Convert::BER"
 }
 
-servers(){
-echo -e "${YELLOW}[+] Tftp server${RESET}"
-apt-get install atftpd -y
-echo "atftpd --daemon --port 69 --bind-address yourip /tmp"
-echo "netstat -anu | grep 69"
-echo -e "${YELLOW}[+] RDP server"
-apt-get install xrdp -y
-}
+
 
 java(){
 echo -e "${GREEN}[+] Java, 3rd party${RESET}"
@@ -333,26 +311,6 @@ cd discover
 git clone https://github.com/leebaird/discover
 }
 
-
-common_exploits()
-{
-#http://www.commonexploits.com/penetration-testing-scripts/
-echo -e "${GREEN}[+] Downloading Common Exploits${RESET}"
-
-mkdir ./common_exploits
-cd common_exploits
-git clone https://github.com/commonexploits/dtpscan.git
-git clone https://github.com/commonexploits/livehosts
-git clone https://github.com/commonexploits/port-scan-automation
-git clone https://github.com/commonexploits/whatsfree
-git clone https://github.com/commonexploits/weape
-git clone https://github.com/commonexploits/winocphc
-git clone https://github.com/commonexploits/ipgen
-git clone https://github.com/commonexploits/vlan-hopping
-git clone https://github.com/commonexploits/icmpsh
-
-cd ..
-}
 smb(){
 mkdir smb_tools
 cd smb_tools
@@ -374,7 +332,6 @@ git clone https://github.com/mubix/ditto
 cd ..
 
 git clone https://github.com/bidord/pykek
-
 git clone https://github.com/ChrisTruncer/EyeWitness.git #eyewitness to scan web servers try default creds and take screenshots
 git clone https://github.com/GDSSecurity/Windows-Exploit-Suggester.git
 git clone https://github.com/gentilkiwi/mimikatz.git
@@ -384,12 +341,9 @@ git clone https://github.com/rsmudge/metasploit-loader #rsmudge metasploit loade
 git clone https://github.com/SherifEldeeb/inmet.git
 git clone https://github.com/SherifEldeeb/TinyMet.git
 cd ..
-
 git clone https://github.com/iagox86/dnscat2.git
-git clone https://github.com/nccgroup/WebFEET.git
 
 git clone https://github.com/rebootuser/LinEnum.git
-
 
 }
 
@@ -423,13 +377,7 @@ heartbleed()
 git clone https://github.com/sensepost/heartbleed-poc.git
 }
 
-clamav()
-{
-  apt-get install clamav
-  apt-get install clamav-freshclam
-  udo apt-get install clamtk
-  
-}
+
 
 
 powershell()
@@ -472,39 +420,23 @@ cd ..
 cd ..
 }
 
-virtual_machine_kvm()
-{
 
-apt-get install virt-manager -y
-apt-get install libvirt-bin -y
-apt-get install ssh-askpass -y
-apt-get install virt-goodies -y
-}
 
 recon()
 {
 git clone https://github.com/Easy-Forex/Verify-emails
 git clone https://github.com/samwize/pyExtractor.git
+git clone https://github.com/nccgroup/WebFEET.git
 	
 }
 
 webapp()
 {
-
 mkdir webapp
 cd webapp
 git clone https://github.com/maurosoria/dirs3arch.git	
 git clone https://github.com/m101/lfipwn/blob/master/lfipwn.py
 cd ..	
-}
-
-news()
-{
-	mkdir news
-	cd news
-	git clone https://github.com/fdiskyou/feedme
-	cd ..
-	
 }
 
 phishing()
@@ -521,6 +453,86 @@ lateral()
 	git clone https://github.com/secabstraction/Create-WMIshell
 	cd ..
 }
+
+common_exploits()
+{
+#http://www.commonexploits.com/penetration-testing-scripts/
+echo -e "${GREEN}[+] Downloading Common Exploits${RESET}"
+
+mkdir ./common_exploits
+cd common_exploits
+git clone https://github.com/commonexploits/dtpscan.git
+git clone https://github.com/commonexploits/livehosts
+git clone https://github.com/commonexploits/port-scan-automation
+git clone https://github.com/commonexploits/whatsfree
+git clone https://github.com/commonexploits/weape
+git clone https://github.com/commonexploits/winocphc
+git clone https://github.com/commonexploits/ipgen
+git clone https://github.com/commonexploits/vlan-hopping
+git clone https://github.com/commonexploits/icmpsh
+
+cd ..
+}
+
+
+servers(){
+echo -e "${YELLOW}[+] Tftp server${RESET}"
+apt-get install atftpd -y
+echo "atftpd --daemon --port 69 --bind-address yourip /tmp"
+echo "netstat -anu | grep 69"
+#echo -e "${YELLOW}[+] RDP server"
+#apt-get install xrdp -y
+}
+
+news()
+{
+	mkdir news
+	cd news
+	git clone https://github.com/fdiskyou/feedme
+	cd ..
+	
+}
+
+
+
+
+clamav()
+{
+  apt-get install clamav
+  apt-get install clamav-freshclam
+  udo apt-get install clamtk
+  
+}
+
+
+virtualbox()
+{
+apt-get install virtualbox virtualbox-guest-x11 virtualbox-guest-utils virtualbox-guest-additions -y
+apt-get install virtualbox-ose-dkms -y
+}
+
+
+virtual_machine_kvm()
+{
+
+apt-get install virt-manager -y
+apt-get install libvirt-bin -y
+apt-get install ssh-askpass -y
+apt-get install virt-goodies -y
+}
+
+
+nvidia()
+{
+echo test
+#############NVIDIA CHIPSET#######################################
+echo -e "${PURPLE}[+]Adding NVIDIA repository"
+add-apt-repository ppa:ubuntu-x-swat/x-updates
+echo -e "${PURPLE}[+]Setting up Nvidia Drivers "
+apt-get update && apt-get install nvidia-current nvidia-current-modaliases nvidia-settings
+echo -e "${GREEN}[i]Reboot and ${BLUE}nvidia-xconfig"
+}
+
 
 prereqs;
 set_up;
@@ -547,7 +559,7 @@ webapp;
 news;
 thpb2;
 phishing;
-nvidia;
+#nvidia;
 lateral;
 #clamav;
 #virtual_machine_kvm;

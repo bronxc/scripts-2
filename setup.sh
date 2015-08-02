@@ -23,10 +23,7 @@ KALI=$1;
 
 
 
-#android;
-#nvidia()
-
-#display_usage(){
+display_usage(){
 #if [ $# -ne 1 ]; then
 #echo -e "${GREEN}[*]Script to set up KALI or DEBIAN installation and additional scripts"
 #echo -e "${GREEN}[*]Usage: $0 [KALI=1] or [KALI=0] "

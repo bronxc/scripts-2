@@ -256,6 +256,12 @@ cd ..
 
 }
 
+windows_priv_esc()
+{
+git clone https://github.com/hfiref0x/CVE-2015-1701.git
+
+}
+
 linux_post()
 {
 git clone https://github.com/rebootuser/LinEnum.git
@@ -401,6 +407,7 @@ git clone https://github.com/cheetz/Easy-P.git
 git clone https://github.com/darkoperator/Posh-SecMod.git
 git clone https://github.com/besimorhino/powercat.git
 git clone https://github.com/mattifestation/PowerShellArsenal.git
+git clone https://github.com/subTee/PoshRat.git
 cd ..
 mkdir cobalt
 git clone https://github.com/rvrsh3ll/POSH-Commander

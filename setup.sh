@@ -112,7 +112,8 @@ apt-get install kate -y
 #deb http://http.kali.org/kali kali-dev main/debian-installer
 #deb http://http.kali.org/kali kali main/debian-installer
 #deb http://repo.kali.org/kali kali-bleeding-edge main 
-
+apt-get install unrar unace rar unrar p7zip zip unzip p7zip-full p7zip-rar file-roller -y
+apt-get install gtk-recordmydesktop recordmydesktop remmina -y
 }
 
 optional(){

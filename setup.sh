@@ -115,6 +115,7 @@ apt-get install kate -y
 apt-get install unrar unace rar unrar p7zip zip unzip p7zip-full p7zip-rar file-roller -y
 apt-get install gtk-recordmydesktop recordmydesktop remmina -y
 apt-get install freerdp-* -y
+apt-get install remmina-* -y
 }
 
 optional(){

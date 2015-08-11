@@ -462,8 +462,11 @@ lateral()
 	cd lateral
 	git clone https://github.com/poweradminllc/PAExec
 	git clone https://github.com/secabstraction/Create-WMIshell
+	mkdir kerberos
 	git clone https://github.com/nidem/kerberoast
 	git clone https://github.com/gentilkiwi/kekeo
+	git clone https://github.com/rvazarkar/KrbCredExport
+	cd ..
 	cd ..
 }
 

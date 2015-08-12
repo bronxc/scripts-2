@@ -41,7 +41,6 @@ prereqs()
   apt-get install gcc -y
   apt-get install build-essentials -y
   apt-get install make -y
-  apt-get install linux-headers-$(uname -r|sed 's,[^-]*-[^-]*-,,') -y
   apt-get install gdb -y
   apt-get install mingw32 -y
   apt-get install autoconf -y
@@ -60,7 +59,11 @@ prereqs()
   echo -e "${IBLUE}[*] Perform the following: Application Menu -> Settings -> Appearance (default font size - 10 - changed to 13)${RESET}"
   echo -e "${IBLUE}[*] Terminal Font - default 12 -> 13, set to transparent background , changed font color to white${RESET}"
   echo -e "${IBLUE}[*] Perform the following: Keyboard Shortcuts -> Add custom shortcut -> Terminal - gnome-terminal -> Shortcut : Press CTRL ALT T${RESET}"
+  echo -e "${IRED}[*]add repos to /etc/apt/sources.list for linux headers and vmware"
+  echo  "deb-src http://http.kali.org/kali sana main non-free contrib" >> /etc/apt/sources.list
+  echo "deb-src http://security.kali.org/kali-security sana/updates main contrib non-free" >> /etc/apt/sources.list
   read line
+    apt-get install linux-headers-$(uname -r|sed 's,[^-]*-[^-]*-,,') -y
 
 }
 

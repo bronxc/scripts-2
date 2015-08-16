@@ -356,6 +356,8 @@ cd ..
 git clone https://github.com/iagox86/dnscat2.git
 
 git clone https://github.com/rebootuser/LinEnum.git
+git clone https://github.com/cyberisltd/NcatPortable
+
 
 }
 

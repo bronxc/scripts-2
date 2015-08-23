@@ -326,10 +326,11 @@ git clone https://github.com/leebaird/discover
 smb(){
 mkdir smb_tools
 cd smb_tools
-echo -e "${BLUE}[+] SMBEXEC and RESPONDER"
+echo -e "${BLUE}[+] SMBEXEC and RESPONDER and CrackMapExec"
 git clone https://github.com/brav0hax/smbexec.git
 git clone https://github.com/SpiderLabs/Responder.git
 git clone https://github.com/mubix/FakeNetBIOS
+git clone https://github.com/byt3bl33d3r/CrackMapExec
 cd ..
 }
 

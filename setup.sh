@@ -272,7 +272,7 @@ linux_post()
 {
 git clone https://github.com/rebootuser/LinEnum.git
 git clone https://github.com/dwin999/ptscripts/blob/master/revershelloneliners.sh
-git clone https://github.com/giMini/RWMC
+
 	
 }
 
@@ -418,6 +418,7 @@ git clone https://github.com/darkoperator/Posh-SecMod.git
 git clone https://github.com/besimorhino/powercat.git
 git clone https://github.com/mattifestation/PowerShellArsenal.git
 git clone https://github.com/subTee/PoshRat.git
+git clone https://github.com/giMini/RWMC
 git clone https://github.com/PowerShellEmpire/Empire.git
 cd ..
 mkdir cobalt

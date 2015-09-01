@@ -272,6 +272,7 @@ linux_post()
 {
 git clone https://github.com/rebootuser/LinEnum.git
 git clone https://github.com/dwin999/ptscripts/blob/master/revershelloneliners.sh
+git clone https://github.com/giMini/RWMC
 	
 }
 

@@ -558,6 +558,10 @@ apt-get update && apt-get install nvidia-current nvidia-current-modaliases nvidi
 echo -e "${GREEN}[i]Reboot and ${BLUE}nvidia-xconfig"
 }
 
+various()
+{
+git clone https://github.com/StarshipEngineer/OpenVPN-Setup
+}
 
 prereqs;
 set_up;

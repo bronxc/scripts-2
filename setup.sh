@@ -265,7 +265,7 @@ cd ..
 windows_priv_esc()
 {
 git clone https://github.com/hfiref0x/CVE-2015-1701.git
-
+git clone https://github.com/monoxgas/Trebuchet
 }
 
 linux_post()
@@ -359,6 +359,7 @@ git clone https://github.com/iagox86/dnscat2.git
 
 git clone https://github.com/rebootuser/LinEnum.git
 git clone https://github.com/cyberisltd/NcatPortable
+git clone https://github.com/denandz/KeeFarce
 
 
 }
@@ -447,6 +448,7 @@ git clone https://github.com/Easy-Forex/Verify-emails
 git clone https://github.com/samwize/pyExtractor.git
 git clone https://github.com/nccgroup/WebFEET.git
 git clone https://github.com/Hypsurus/ftpmap
+git clone https://github.com/michenriksen/gitrob
 	
 }
 

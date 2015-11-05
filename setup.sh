@@ -436,6 +436,7 @@ git clone https://github.com/enigma0x3/Powershell-Infection.git
 git clone https://github.com/enigma0x3/PowershellProfile.git
 git clone https://github.com/enigma0x3/Powershell-Infection.git
 git clone https://github.com/enigma0x3/Powershell-C2.git
+git clone https://github.com/khr0x40sh/MacroShop
 cd ..
 cd ..
 }

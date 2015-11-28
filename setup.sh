@@ -378,6 +378,7 @@ egress()
 {
 	mkdir egress
 	git clone https://github.com/trustedsec/egressbuster
+	git clone https://github.com/ChrisTruncer/Egress-Assess.git
 	cd ..
 	
 }

@@ -467,6 +467,7 @@ phishing()
 {
 	git clone https://github.com/cheetz/spearphishing
 	git clone https://github.com/Section9Labs/Cartero
+	git clone https://gist.github.com/monoxgas/7fec9ec0f3ab405773fc
 }
 
 lateral()

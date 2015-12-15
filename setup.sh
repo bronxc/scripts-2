@@ -569,6 +569,7 @@ echo -e "${GREEN}[i]Reboot and ${BLUE}nvidia-xconfig"
 various()
 {
 git clone https://github.com/StarshipEngineer/OpenVPN-Setup
+git clone https://github.com/stackp/Droopy
 }
 
 prereqs;

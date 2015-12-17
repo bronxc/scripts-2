@@ -572,6 +572,14 @@ git clone https://github.com/StarshipEngineer/OpenVPN-Setup
 git clone https://github.com/stackp/Droopy
 }
 
+defence(){
+	mkdir defence
+	cd defence
+	git clone https://github.com/micheloosterhof/cowrie
+	cd ..
+	
+}
+
 prereqs;
 set_up;
 clients;

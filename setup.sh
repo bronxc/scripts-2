@@ -5,6 +5,8 @@
 # TODO: Tidy up and clean up - Comment code and add arguments
 # Add usage etc.
 
+########################
+# COLORS ######
 RED="\e[0;31m"
 GREEN="\e[0;32m"
 YELLOW="\e[0;33m"
@@ -19,9 +21,11 @@ BRED="\e[1;31m"
 BGREEN="\e[1;32m"
 BOLD="\e[1m"
 RESET="\e[0m"
+
+#GLOBAL VARIABLES
 KALI=$1;
 
-
+#####################
 
 display_usage(){
 if [ $# -ne 1 ]; then
@@ -31,56 +35,94 @@ exit
 fi
 }
 
-prereqs()
-{
-  echo -e "${PURPLE}[*]Setting up sudo ${RESET}"
-  #apt-get install sudo -y
+###########Generic Utilities and Updates#####################
+initial_su(){
+start=`date`
+echo -e "${GREEN}[*]Setting up $(hostname)[laptop]\n$(uname -a) at $start ${RESET}"
+sleep 2
+echo -e "${YELLOW}[+]Install Updates${RESET}"
+sudo apt-get update && sudo apt-get upgrade -y
+
+}
+
+sudo_su(){
+  echo -e "${BLUE}[*]Setting up sudo ${RESET}"
+  apt-get install sudo -y
   visudo
   read line
-  apt-get install git -y
+  echo -e "${GREEN}[*] increase font size${RESET}"
+  nano ~/.icewm/preferences 
+
+}
+
+prereqs()
+{
+
+echo -e "${WHITE}[+]Installing various tools and pre-reqs ${RESET}"
+## compilers  ##
+  apt-get install make -y
   apt-get install gcc -y
   apt-get install build-essentials -y
-  apt-get install make -y
   apt-get install gdb -y
   apt-get install mingw32 -y
+  # headers
+  apt-get install linux-headers-$(uname -r|sed 's,[^-]*-[^-]*-,,') -y
+
+## software ##  
+  apt-get install git -y
   apt-get install autoconf -y
   apt-get install flex -y
   apt-get install bison -y
   apt-get install byacc -y
+  apt-get install ccze -y
+  
+  apt-get install iftop -y
+  apt-get install htop -y
+  apt-get install mlocate -y
+  apt-get install dia -y
+  
+  apt-get install unetbootin
+  
+  
+## terminator 
+  apt-get install terminator -y
+  apt-get install screen -y
+  echo -e "${YELLOW}[+] ranger file explorer${RESET}"
+  apt-get install ranger -y
+  
+## kate , hex editor
+  apt-get install kate -y
+  apt-get install hexedit
+  apt-get install him -y
+## networking ##
   apt-get install vlan -y
   apt-get install tshark -y
-  apt-get install screen -y
   apt-get install ethtool -y # frogger
-  apt-get install ccze -y
+## wine##  
   dpkg --add-architecture i386
   apt-get install wine -y # for wine when installed on 64bit
   apt-get install wine-bin:i386  
+## update nmap ##
   nmap --script-update
-  echo -e "${IBLUE}[*] Perform the following: Application Menu -> Settings -> Appearance (default font size - 10 - changed to 13)${RESET}"
-  echo -e "${IBLUE}[*] Terminal Font - default 12 -> 13, set to transparent background , changed font color to white${RESET}"
-  echo -e "${IBLUE}[*] Perform the following: Keyboard Shortcuts -> Add custom shortcut -> Terminal - gnome-terminal -> Shortcut : Press CTRL ALT T${RESET}"
-  echo -e "${IRED}[*]add repos to /etc/apt/sources.list for linux headers and vmware"
+  echo -e "${YELLOW}[*] Perform the following: Application Menu -> Settings -> Appearance (default font size - 10 - changed to 13)${RESET}"
+  echo -e "${YELLOW}[*] Terminal Font - default 12 -> 13, set to transparent background , changed font color to white${RESET}"
+  echo -e "${YELLOW}[*] Perform the following: Keyboard Shortcuts -> Add custom shortcut -> Terminal - gnome-terminal -> Shortcut : Press CTRL ALT T${RESET}"
+## repos for kali ##  
+  echo -e "${YELLOW}[*]add repos to /etc/apt/sources.list for linux headers and vmware"
   echo  "deb-src http://http.kali.org/kali sana main non-free contrib" >> /etc/apt/sources.list
   echo "deb-src http://security.kali.org/kali-security sana/updates main contrib non-free" >> /etc/apt/sources.list
   read line
-    apt-get install linux-headers-$(uname -r|sed 's,[^-]*-[^-]*-,,') -y
 
 }
 
-###########Generic Utilities and Updates#####################
-set_up(){
-start=`date`
-echo -e "${GREEN}[*]Setting up $(hostname)[laptop]\n$(uname -a) at $start ${RESET}"
-sleep 2
-echo -e "${RED}[+]Install Updates${RESET}"
-apt-get update && apt-get upgrade -y
-apt-get install iftop htop mlocate -y
-apt-get install dia -y
-apt-get install terminator -y
-sleep 2
-}
+
 
 clients(){
+## RDP clients
+echo -e "${YELLOW}[+] RDP clients${RESET}"
+apt-get install remmina -y
+apt-get install freerdp-* -y
+apt-get install remmina-* -y
 echo -e "${YELLOW}[+] finger${RESET}"
 apt-get install finger -y
 echo -e "${YELLOW}[+] rlogin,rsh client, putty,tftp, filezilla${RESET}"
@@ -91,76 +133,47 @@ apt-get install tftp -y
 apt-get install filezilla filezilla-common -y
 }
 
-
-kali_set_up()
+archive()
 {
+## Archive software
+echo -e "${IBLUE}[+] Archive utilities - rar, 7zip"
 
-#############KALI#################################################
+apt-get install unace -y
+apt-get install rar -y
+apt-get install unrar -y
+apt-get install p7zip -y
+apt-get install zip -y
+apt-get install unzip -y
+apt-get install p7zip-full -y
+apt-get install p7zip-rar -y
+apt-get install file-roller -y
+apt-get install unrar -y
+}
 
-echo -e "${BLUE}[+]Updating Metasploit${RESET}"
+kali_su()
+{
+## KALI additional software set up
+echo -e "${GREEN}[+]Updating Metasploit${RESET}"
 msfupdate
-echo -e "${YELLOW}[+] Beef${RESET}"
-#apt-get install beef-xss -y
-apt-get install kate -y
-#echo -e "${BLUE}[+] Open Office"
-#apt-get install openoffice.org -y
-# add to /etc/apt/sources.list
-#deb-src http://security.kali.org/kali-security kali/updates main contrib non-free
-#deb http://http.kali.org/kali kali main non-free contrib
-#deb-src http://http.kali.org/kali kali main non-free contrib
-#deb http://http.kali.org/ /kali main contrib non-free
-#deb http://http.kali.org/ /wheezy main contrib non-free
-#deb http://http.kali.org/kali kali-dev main contrib non-free
-#deb-src http://http.kali.org/kali kali-dev main contrib non-free
-#deb http://http.kali.org/kali kali-dev main/debian-installer
-#deb http://http.kali.org/kali kali main/debian-installer
-#deb http://repo.kali.org/kali kali-bleeding-edge main 
-apt-get install unrar unace rar unrar p7zip zip unzip p7zip-full p7zip-rar file-roller -y
-apt-get install gtk-recordmydesktop recordmydesktop remmina -y
-apt-get install freerdp-* -y
-apt-get install remmina-* -y
-}
 
-optional(){
-#############OPTIONAL##############################################
-#echo -e "${PURPLE}[+] Compiz"
-#apt-get install compiz -y
-#echo -e "${WHITE}[+]Installing tools"
-#apt-get install synaptic
-apt-get install unetbootin
-apt-get install hexedit
-echo -e "${GREEN}[*] increase font size${RESET}"
-#nano ~/.icewm/preferences 
-echo -e "${YELLOW}[+] him"
-apt-get install him -y
-echo -e "${YELLOW}[+] ranger file explorer${RESET}"
-apt-get install ranger -y
+echo -e "${BLUE}[+] Open Office"
+apt-get install openoffice.org -y
+
+apt-get install gtk-recordmydesktop recordmydesktop -y
 
 }
 
 
-
-
-
-
-
-
-#android(){
-######### fix android sdk error (not finding adb)
-#dpkg --add-architecture i386
-#apt-get install lib32z1 lib32ncurses5
-#apt-get install lib32stdc++6
-
-#}
-password(){
+password_cracking(){
 apt-get install john -y 
 #download and have noobify for quick l337 of words
 iceweasel https://sites.google.com/site/reusablesec/Home/password-cracking-tools/noobify
 #korelogic rules
 wget http://contest-2010.korelogic.com/rules.txt -O korelogic-rules-forjohn.txt
 }
+
 wireless(){
-######### wireless
+# wireless for debian mainly not KALI
 ######  http://askubuntu.com/questions/109260/how-do-i-get-an-intel-ultimate-6300-n-working
 #install firmware-iwlwifi
  
@@ -169,15 +182,14 @@ wireless(){
 	####### In that file add the line:
 	####### options iwlagn bt_coex_active=0
 	echo -e "${YELLOW}[+] Adding The following repository to sources.list and setting up wireless${RESET}"
-        echo -e "${YELLOW}[+] deb http://http.debian.net/debian/ wheezy main non-free${RESET}"
-        echo "deb http://http.debian.net/debian/ wheezy main non-free" > /etc/apt/sources.list
+    echo -e "${YELLOW}[+] deb http://http.debian.net/debian/ wheezy main non-free${RESET}"
+    echo "deb http://http.debian.net/debian/ wheezy main non-free" > /etc/apt/sources.list
 	apt-get install wireless-tools
 	apt-get install aircrack-ng
 	apt-get install wireless-linux
-        apt-get install firmware-iwlwif
-       
-        #sudo nano /etc/apt/sources.list you need to add 
-        #deb http://http.debian.net/debian/ wheezy main non-free
+    apt-get install firmware-iwlwif
+    #sudo nano /etc/apt/sources.list you need to add 
+    #deb http://http.debian.net/debian/ wheezy main non-free
 }
 
 sniffers(){
@@ -204,7 +216,6 @@ apt-get install ike-scan -y
 git clone https://github.com/SECFORCE/sparta
 #echo -e "${YELLOW}[+] unicorn-scan"
 apt-get install python-elixir
-
 #echo -e "${YELLOW}[+] nbtscan"
 mkdir ./nbtscan
 cd nbtscan
@@ -241,7 +252,7 @@ make install
 cd ..
 }
 
-labs()
+portcullis_labs()
 {
 echo -e "${PURPLE}[+] PCSL Labs tools download${RESET}"
 mkdir ./labs
@@ -258,6 +269,8 @@ wget --no-check-certificate https://labs.portcullis.co.uk/download/iker_v1.1.tar
 wget --no-check-certificate https://labs.portcullis.co.uk/download/tools/ssl-cipher-suite-enum-v1.0.0.tar.gz
 tar -xvf *.tar.gz
 cd ..
+# for rdp sec
+perl -MCPAN -e "install Convert::BER"
 
 
 }
@@ -270,6 +283,7 @@ git clone https://github.com/monoxgas/Trebuchet
 
 linux_post()
 {
+git clone https://github.com/pentestmonkey/unix-privesc-check
 git clone https://github.com/rebootuser/LinEnum.git
 git clone https://github.com/dwin999/ptscripts/blob/master/revershelloneliners.sh
 
@@ -281,12 +295,8 @@ ssl()
 git clone https://github.com/drwetter/testssl.sh
 git clone https://github.com/google/nogotofail
 
-# for rdp sec
 
-perl -MCPAN -e "install Convert::BER"
 }
-
-
 
 java(){
 echo -e "${GREEN}[+] Java, 3rd party${RESET}"
@@ -327,7 +337,7 @@ git clone https://github.com/leebaird/discover
 smb(){
 mkdir smb_tools
 cd smb_tools
-echo -e "${BLUE}[+] SMBEXEC and RESPONDER and CrackMapExec"
+echo -e "${IRED}[+] SMBEXEC and RESPONDER and CrackMapExec"
 git clone https://github.com/brav0hax/smbexec.git
 git clone https://github.com/SpiderLabs/Responder.git
 git clone https://github.com/mubix/FakeNetBIOS
@@ -357,7 +367,6 @@ git clone https://github.com/SherifEldeeb/TinyMet.git
 cd ..
 git clone https://github.com/iagox86/dnscat2.git
 
-git clone https://github.com/rebootuser/LinEnum.git
 git clone https://github.com/cyberisltd/NcatPortable
 git clone https://github.com/denandz/KeeFarce
 
@@ -490,8 +499,8 @@ common_exploits()
 #http://www.commonexploits.com/penetration-testing-scripts/
 echo -e "${GREEN}[+] Downloading Common Exploits${RESET}"
 
-mkdir ./common_exploits
-cd common_exploits
+mkdir ./network_tools
+cd network_tools
 git clone https://github.com/commonexploits/dtpscan.git
 git clone https://github.com/commonexploits/livehosts
 git clone https://github.com/commonexploits/port-scan-automation
@@ -527,13 +536,11 @@ news()
 }
 
 
-
-
 clamav()
 {
   apt-get install clamav
   apt-get install clamav-freshclam
-  udo apt-get install clamtk
+  sudo apt-get install clamtk
   
 }
 
@@ -566,10 +573,12 @@ apt-get update && apt-get install nvidia-current nvidia-current-modaliases nvidi
 echo -e "${GREEN}[i]Reboot and ${BLUE}nvidia-xconfig"
 }
 
-various()
+howto()
 {
+mkdir howto
 git clone https://github.com/StarshipEngineer/OpenVPN-Setup
 git clone https://github.com/stackp/Droopy
+cd ..
 }
 
 defence(){
@@ -580,32 +589,41 @@ defence(){
 	
 }
 
-prereqs;
-set_up;
+
+display_usage;
+initial_su;
+sudo_su;
+pre-reqs;
 clients;
-servers;
-#ssl;
+archive;
+kali_su;
+password_cracking;
 sniffers;
 scanning;
-smb;
-kali_set_up;
-#arp_ike_scan;
-#virtualbox;
-optional;
-password;
-common_exploits;
-java;
-labs;
-post_exploit;
+discover;
+portcullis_labs;
+arp_ike_scan;
+
+windows_priv_esc;
 powershell;
-shellshock;
+lateral;
+linux_post;
+#java;
+ssl;
 heartbleed;
+shellshock;
 recon;
 webapp;
-news;
-thpb2;
 phishing;
-#nvidia;
-lateral;
+news;
+network_tools;
+howto;
+servers;
+thpb2;
+smb;
 #clamav;
 #virtual_machine_kvm;
+#virtualbox;
+#wireless;
+#nvidia;
+

@@ -81,7 +81,7 @@ echo -e "${WHITE}[+]Installing various tools and pre-reqs ${RESET}"
   apt-get install mlocate -y
   apt-get install dia -y
   
-  apt-get install unetbootin
+  apt-get install unetbootin -y
   
   
 ## terminator 

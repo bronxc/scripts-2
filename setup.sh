@@ -494,7 +494,7 @@ lateral()
 	cd ..
 }
 
-common_exploits()
+network_tools
 {
 #http://www.commonexploits.com/penetration-testing-scripts/
 echo -e "${GREEN}[+] Downloading Common Exploits${RESET}"
@@ -590,7 +590,7 @@ defence(){
 }
 
 
-display_usage;
+#display_usage;
 initial_su;
 sudo_su;
 pre-reqs;

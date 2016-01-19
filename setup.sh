@@ -369,6 +369,7 @@ git clone https://github.com/iagox86/dnscat2.git
 
 git clone https://github.com/cyberisltd/NcatPortable
 git clone https://github.com/denandz/KeeFarce
+git clone https://github.com/pentestify/competition-modules
 
 
 }

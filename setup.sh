@@ -104,6 +104,7 @@ echo -e "${WHITE}[+]Installing various tools and pre-reqs ${RESET}"
   apt-get install wine-bin:i386  
 ## update nmap ##
   nmap --script-update
+
   echo -e "${YELLOW}[*] Perform the following: Application Menu -> Settings -> Appearance (default font size - 10 - changed to 13)${RESET}"
   echo -e "${YELLOW}[*] Terminal Font - default 12 -> 13, set to transparent background , changed font color to white${RESET}"
   echo -e "${YELLOW}[*] Perform the following: Keyboard Shortcuts -> Add custom shortcut -> Terminal - gnome-terminal -> Shortcut : Press CTRL ALT T${RESET}"
@@ -370,7 +371,8 @@ git clone https://github.com/iagox86/dnscat2.git
 git clone https://github.com/cyberisltd/NcatPortable
 git clone https://github.com/denandz/KeeFarce
 git clone https://github.com/pentestify/competition-modules
-
+## libcrak - bash
+git clone https://github.com/libcrack/bashrc.d
 
 }
 

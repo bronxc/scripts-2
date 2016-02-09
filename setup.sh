@@ -367,13 +367,17 @@ git clone https://github.com/SherifEldeeb/inmet.git
 git clone https://github.com/SherifEldeeb/TinyMet.git
 cd ..
 git clone https://github.com/iagox86/dnscat2.git
-
+git clone https://github.com/Cn33liz/Inveigh
+git clone https://github.com/Cn33liz/p0wnedShell
 git clone https://github.com/cyberisltd/NcatPortable
 git clone https://github.com/denandz/KeeFarce
 git clone https://github.com/pentestify/competition-modules
 mkdir windows-exploits
 cd windows-exploits
 git clone https://github.com/foxglovesec/Potato
+git clone https://github.com/Cn33liz/p0wnedShell
+git clone https://github.com/Cn33liz/SmashedPotato
+
 cd ..
 ## libcrak - bash
 git clone https://github.com/libcrack/bashrc.d

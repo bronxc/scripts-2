@@ -354,6 +354,7 @@ git clone https://github.com/mubix/post-exploitation.git
 git clone https://github.com/quarkslab/quarkspwdump
 git clone https://github.com/pwnwiki/pwnwiki.github.io.git
 git clone https://github.com/mubix/ditto
+
 cd ..
 
 git clone https://github.com/bidord/pykek
@@ -381,6 +382,7 @@ git clone https://github.com/Cn33liz/SmashedPotato
 cd ..
 ## libcrak - bash
 git clone https://github.com/libcrack/bashrc.d
+git clone https://github.com/a0rtega/pafish
 
 }
 
@@ -629,7 +631,7 @@ webapp;
 phishing;
 news;
 network_tools;
-howto;
+howto;s
 servers;
 thpb2;
 smb;

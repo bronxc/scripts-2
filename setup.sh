@@ -361,6 +361,7 @@ git clone https://github.com/bidord/pykek
 git clone https://github.com/ChrisTruncer/EyeWitness.git #eyewitness to scan web servers try default creds and take screenshots
 git clone https://github.com/GDSSecurity/Windows-Exploit-Suggester.git
 git clone https://github.com/gentilkiwi/mimikatz.git
+git clone https://github.com/adamkramer/dll_hijack_detect/releases
 mkdir meterpreter_loaders
 cd meterpreter_loaders
 git clone https://github.com/rsmudge/metasploit-loader #rsmudge metasploit loader

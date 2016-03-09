@@ -437,6 +437,7 @@ git clone https://github.com/nullbind/Powershellery.git
 git clone https://github.com/Veil-Framework/Veil.git
 git clone https://github.com/trustedsec/unicorn.git
 git clone https://github.com/silentsignal/wpc-ps.git
+git clone https://github.com/jaredhaight/PSAttackBuildTool
 git clone https://github.com/b00stfr3ak/fast_meterpreter
 git clone https://github.com/obscuresec/random/blob/master/EncodeShell.py
 git clone https://github.com/nullbind/Powershellery/blob/master/Stable-ish/Get-SPN/Get-SPN.psm1

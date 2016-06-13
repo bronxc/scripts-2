@@ -348,7 +348,8 @@ cd ..
 
 whitelist_bypass()
 {
- 
+  git clone https://github.com/fdiskyou/PowerOPS/
+  git clone https://github.com/Cn33liz/p0wnedShell
 }
 
 post_exploit()

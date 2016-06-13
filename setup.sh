@@ -291,6 +291,11 @@ git clone https://github.com/dwin999/ptscripts/blob/master/revershelloneliners.s
 	
 }
 
+windows_binary()
+{
+	git clone https://github.com/Microsoft/binskim
+}
+
 ssl()
 {
 git clone https://github.com/drwetter/testssl.sh
@@ -648,6 +653,8 @@ howto;s
 servers;
 thpb2;
 smb;
+whitelist_bypass;
+windows_binaries;
 #clamav;
 #virtual_machine_kvm;
 #virtualbox;

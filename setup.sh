@@ -346,6 +346,11 @@ git clone https://github.com/byt3bl33d3r/CrackMapExec
 cd ..
 }
 
+whitelist_bypass()
+{
+ 
+}
+
 post_exploit()
 {
 mkdir mubix
@@ -371,6 +376,7 @@ cd ..
 git clone https://github.com/iagox86/dnscat2.git
 git clone https://github.com/Cn33liz/Inveigh
 git clone https://github.com/Cn33liz/p0wnedShell
+git clone https://github.com/subTee/PoshRat
 git clone https://github.com/cyberisltd/NcatPortable
 git clone https://github.com/denandz/KeeFarce
 git clone https://github.com/pentestify/competition-modules
@@ -426,6 +432,7 @@ powershell()
 mkdir powershell
 cd powershell
 git clone https://github.com/HarmJ0y/PowerUp
+git clone https://github.com/Cn33liz/p0wnedShell
 git clone https://github.com/PowerShellMafia/PowerSploit
 git clone https://github.com/HarmJ0y/CheatSheets
 git clone https://github.com/samratashok/nishang

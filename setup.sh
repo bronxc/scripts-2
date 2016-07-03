@@ -356,6 +356,7 @@ whitelist_bypass()
   git clone https://github.com/fdiskyou/PowerOPS/
   git clone https://github.com/Cn33liz/p0wnedShell
   git clone https://github.com/Cn33liz/SharpCat
+  git clone https://github.com/khr0x40sh/WhiteListEvasion
 }
 
 post_exploit()

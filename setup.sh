@@ -464,6 +464,7 @@ git clone https://github.com/subTee/PoshRat.git
 git clone https://github.com/giMini/RWMC
 git clone https://github.com/PowerShellEmpire/Empire.git
 git clone https://github.com/NetSPI/PowerUpSQL
+git clone https://github.com/leechristensen/UnmanagedPowerShell
 cd ..
 mkdir cobalt
 git clone https://github.com/rvrsh3ll/POSH-Commander

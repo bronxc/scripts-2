@@ -445,6 +445,7 @@ git clone https://github.com/PowerShellMafia/PowerSploit
 git clone https://github.com/HarmJ0y/CheatSheets
 git clone https://github.com/samratashok/nishang
 git clone https://github.com/pjhartlieb/post-exploitation.git
+git clone https://github.com/putterpanda/mimikittenz
 git clone https://github.com/mattifestation/PowerSploit.git
 git clone https://github.com/PyroTek3/PowerShell-AD-Recon.git
 git clone https://github.com/silverhack/voyeur

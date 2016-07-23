@@ -367,6 +367,7 @@ git clone https://github.com/mubix/post-exploitation.git
 git clone https://github.com/quarkslab/quarkspwdump
 git clone https://github.com/pwnwiki/pwnwiki.github.io.git
 git clone https://github.com/mubix/ditto
+git clone https://github.com/Shellntel/scripts/
 
 cd ..
 

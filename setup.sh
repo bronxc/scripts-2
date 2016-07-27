@@ -348,6 +348,8 @@ git clone https://github.com/brav0hax/smbexec.git
 git clone https://github.com/SpiderLabs/Responder.git
 git clone https://github.com/mubix/FakeNetBIOS
 git clone https://github.com/byt3bl33d3r/CrackMapExec
+git clone https://github.com/Raikia/CredNinja
+git clone https://github.com/ChrisTruncer/WMIOps
 cd ..
 }
 

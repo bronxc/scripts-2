@@ -337,7 +337,8 @@ discover()
 {
 mkdir discover
 cd discover
-git clone https://github.com/leebaird/discover
+git clone https://github.com/leebaird/discover /opt/discover/
+cd ..
 }
 
 smb(){

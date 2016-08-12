@@ -351,6 +351,7 @@ git clone https://github.com/mubix/FakeNetBIOS
 git clone https://github.com/byt3bl33d3r/CrackMapExec
 git clone https://github.com/Raikia/CredNinja
 git clone https://github.com/ChrisTruncer/WMIOps
+git clone https://github.com/adaptivethreat/BloodHound
 cd ..
 }
 
@@ -553,6 +554,7 @@ git clone https://github.com/commonexploits/ipgen
 git clone https://github.com/commonexploits/vlan-hopping
 git clone https://github.com/commonexploits/icmpsh
 git clone https://github.com/nccgroup/cisco-SNMP-enumeration
+git clone https://github.com/commonexploits/cisco-SNMP-enumeration/
 git clone https://github.com/nccgroup/vlan-hopping---frogger
 
 cd ..

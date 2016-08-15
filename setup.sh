@@ -82,8 +82,8 @@ echo -e "${WHITE}[+]Installing various tools and pre-reqs ${RESET}"
   apt-get install dia -y
   
   apt-get install unetbootin -y
-  
-  
+  apt-get install conky-all -y
+  apt-get install conky-manager -y
 ## terminator 
   apt-get install terminator -y
   apt-get install screen -y

@@ -503,6 +503,7 @@ git clone https://github.com/Hypsurus/ftpmap
 git clone https://github.com/michenriksen/gitrob
 git clone https://github.com/Pickfordmatt/Prowl.git
 git clone https://github.com/philhagen/ip2geo
+git clone https://github.com/upgoingstar/datasploit
 	
 }
 

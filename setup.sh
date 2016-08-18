@@ -308,7 +308,7 @@ java(){
 echo -e "${GREEN}[+] Java, 3rd party${RESET}"
 #http://www.oracle.com/technetwork/java/javase/downloads/index.html
 #http://www.oracle.com/technetwork/java/javase/downloads/index.html
-#wget --no-cookies -no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2fwww.oracle.com%2F; oraclelicense=accept-securebackupcookie" "http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jdk-8u45-linux-x64.tar.gz"
+#wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jdk-8u45-linux-x64.tar.gz"
 #Untar the Archive
 #tar -xzvf /root/jdk-7u17-linux-x64.tar.gz
 #mv jdk1.7.0_17 /opt

@@ -423,21 +423,23 @@ thpb2()
 egress()
 {
 	mkdir egress
+	cd egress
 	clone https://github.com/trustedsec/egressbuster
 	clone https://github.com/ChrisTruncer/Egress-Assess.git
 	cd ..
-	
+	cd $CURRENT
 }
 
 shellshock()
 {
-
+cd $CURRENT
 clone https://github.com/mubix/shellshocker-pocs
 
 }
 
 heartbleed()
 {
+cd $CURRENT
 clone https://github.com/sensepost/heartbleed-poc.git
 }
 
@@ -446,6 +448,7 @@ clone https://github.com/sensepost/heartbleed-poc.git
 
 powershell()
 {
+cd $CURRENT
 mkdir powershell
 cd powershell
 clone https://github.com/HarmJ0y/PowerUp

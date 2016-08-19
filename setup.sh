@@ -675,6 +675,7 @@ egress;
 shellshock;
 heartbleed;
 powershell;
+network-tools;
 recon;
 webapp;
 lateral;

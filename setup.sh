@@ -651,7 +651,7 @@ defence(){
 	
 }
 
-usage;
+#usage;
 init;
 prereqs;
 sudo_setup;

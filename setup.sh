@@ -654,7 +654,6 @@ defence(){
 #usage;
 init;
 prereqs;
-sudo_setup;
 clients;
 archive;
 extras;
@@ -683,7 +682,8 @@ news;
 clamav;
 defence;
 howto;
-
+sudo_setup;
+manual;
 
 
 

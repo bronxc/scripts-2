@@ -551,13 +551,13 @@ lateral()
 	cd $CURRENT
 }
 
-network_tools
+network-tools
 {
 #http://www.commonexploits.com/penetration-testing-scripts/
 info "Downloading Common Exploits Repository - Vlan hopping, cisco snmp enum etc."
 
-mkdir ./network_tools
-cd network_tools
+mkdir ./common-exploits
+cd common-exploits
 clone https://github.com/commonexploits/dtpscan.git
 clone https://github.com/commonexploits/livehosts
 clone https://github.com/commonexploits/port-scan-automation

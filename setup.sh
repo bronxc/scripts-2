@@ -551,7 +551,7 @@ lateral()
 	cd $CURRENT
 }
 
-network-tools
+network-tools()
 {
 #http://www.commonexploits.com/penetration-testing-scripts/
 info "Downloading Common Exploits Repository - Vlan hopping, cisco snmp enum etc."

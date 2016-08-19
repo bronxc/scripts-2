@@ -1,176 +1,193 @@
 #!/bin/bash
-# nob1dy 2014
-# Script to automate setting up additional tools and pre-requisites for Debian/Kali based systems 
-# tested and works with Kali and Debian - yes
-# TODO: Tidy up and clean up - Comment code and add arguments
-# Add usage etc.
+#--------------------------------------#
+# Author: nob1dy 2014-2016     (Update: 2016-08)
+# Description: Post-installation script for Debian/Kali - Configuration
+# Operating System: Kali - tested
+# Requirements: Root and Internet Connection
+#--------------------------------------#
 
-########################
-# COLORS ######
-RED="\e[0;31m"
-GREEN="\e[0;32m"
-YELLOW="\e[0;33m"
-BLUE="\e[0;34m"
-PURPLE="\e[0;35m"
+# Default and Global Vars
+# COLORS 
+RED="\e[0;31m" # Errors
+GREEN="\e[0;32m" # Success
+YELLOW="\e[0;33m" # Warning 
+BLUE="\e[0;34m" # Background
+PURPLE="\e[0;35m" # Emphasise
 HPURPLE="\e[1;35m"
 IRED="\e[0;91m"
 IGREEN="\e[0;92m"
-IYELLOW="\e[0;93m"
+IYELLOW="\e[0;93m" # Progress
 IBLUE="\e[0;94m"
 BRED="\e[1;31m"
 BGREEN="\e[1;32m"
-BOLD="\e[1m"
-RESET="\e[0m"
+BOLD="\e[1m" # Bold
+RESET="\e[0m" # Normal
 
 #GLOBAL VARIABLES
-KALI=$1;
-
+KALI=true;
 #####################
 
-display_usage(){
+START=`date`
+CURRENT=`pwd`
+
+
+######################
+
+msg() { echo -e "${BOLD}[*]$(date '+%d/%m/%y %H:%M:%S') ${@} ${RESET}"; }
+info() { echo -e "${BOLD}${IGREEN}[*]$(date '+%d/%m/%y %H:%M:%S') ${@} ${RESET}"; }
+success() { echo -e "${BOLD}${BGREEN}[*]$(date '+%d/%m/%y %H:%M:%S') [SUCCESS] ${@} ${RESET}"; }
+error()   { echo -e "${BOLD}${BRED}[*]$(date '+%d/%m/%y %H:%M:%S') [ERROR] ${@} ${RESET}"; }
+download() { wget --no-cookies --no-check-certificate "${@}";}
+clone() { git clone "${@}";}
+install() { apt-get -qq install "${@}" -y;}
+
+
+usage(){
 if [ $# -ne 1 ]; then
-echo -e "${GREEN}[*]Script to set up KALI or DEBIAN installation and additional scripts"
-echo -e "${GREEN}[*]Usage: $0 [KALI=1] or [KALI=0] "
+error "Post-installation script for Debian/Kali - Configuration"
 exit
 fi
 }
 
-###########Generic Utilities and Updates#####################
-initial_su(){
-start=`date`
-echo -e "${GREEN}[*]Setting up $(hostname)[laptop]\n$(uname -a) at $start ${RESET}"
-sleep 2
-echo -e "${YELLOW}[+]Install Updates${RESET}"
-sudo apt-get update && sudo apt-get upgrade -y
-
+# Update - Initialise
+init(){
+info "$(hostname)\n$(whoami)\n$(uname -a)"
+msg "Adding repos to /etc/apt/sources.list for linux kernel headers and VMware"
+echo "deb-src http://http.kali.org/kali sana main non-free contrib" >> /etc/apt/sources.list
+echo "deb-src http://security.kali.org/kali-security sana/updates main contrib non-free" >> /etc/apt/sources.list
+msg "Updating"
+sudo apt-get -qq update && sudo apt-get -qq upgrade -y
+success "Updating completed"
+info "Linux kernel headers"
+install linux-headers-$(uname -r|sed 's,[^-]*-[^-]*-,,')
+msg "Updating Metasploit"
+msfupdate
 }
 
-sudo_su(){
-  echo -e "${BLUE}[*]Setting up sudo ${RESET}"
-  apt-get install sudo -y
+sudo_setup(){
+  msg "Sudo Set up"
+  install sudo
   visudo
   read line
-  echo -e "${GREEN}[*] increase font size${RESET}"
-  nano ~/.icewm/preferences 
-
 }
 
 prereqs()
 {
 
-echo -e "${WHITE}[+]Installing various tools and pre-reqs ${RESET}"
-## compilers  ##
-  apt-get install make -y
-  apt-get install gcc -y
-  apt-get install build-essentials -y
-  apt-get install gdb -y
-  apt-get install mingw32 -y
-  # headers
-  apt-get install linux-headers-$(uname -r|sed 's,[^-]*-[^-]*-,,') -y
-
-## software ##  
-  apt-get install git -y
-  apt-get install autoconf -y
-  apt-get install flex -y
-  apt-get install bison -y
-  apt-get install byacc -y
-  apt-get install ccze -y
-  
-  apt-get install iftop -y
-  apt-get install htop -y
-  apt-get install mlocate -y
-  apt-get install dia -y
-  
-  apt-get install unetbootin -y
-  apt-get install conky-all -y
-  apt-get install conky-manager -y
-## terminator 
-  apt-get install terminator -y
-  apt-get install screen -y
-  echo -e "${YELLOW}[+] ranger file explorer${RESET}"
-  apt-get install ranger -y
-  
-## kate , hex editor
-  apt-get install kate -y
-  apt-get install hexedit
-  apt-get install him -y
-## networking ##
-  apt-get install vlan -y
-  apt-get install tshark -y
-  apt-get install ethtool -y # frogger
-## wine##  
-  dpkg --add-architecture i386
-  apt-get install wine -y # for wine when installed on 64bit
-  apt-get install wine-bin:i386  
-## update nmap ##
-  nmap --script-update
-
-  echo -e "${YELLOW}[*] Perform the following: Application Menu -> Settings -> Appearance (default font size - 10 - changed to 13)${RESET}"
-  echo -e "${YELLOW}[*] Terminal Font - default 12 -> 13, set to transparent background , changed font color to white${RESET}"
-  echo -e "${YELLOW}[*] Perform the following: Keyboard Shortcuts -> Add custom shortcut -> Terminal - gnome-terminal -> Shortcut : Press CTRL ALT T${RESET}"
-## repos for kali ##  
-  echo -e "${YELLOW}[*]add repos to /etc/apt/sources.list for linux headers and vmware"
-  echo  "deb-src http://http.kali.org/kali sana main non-free contrib" >> /etc/apt/sources.list
-  echo "deb-src http://security.kali.org/kali-security sana/updates main contrib non-free" >> /etc/apt/sources.list
-  read line
+msg "Installing pre-reqs for next steps ( tools, compilers etc.)"
+info "compilers"
+install ccze
+install make
+install gcc
+install build-essentials
+install gdb
+install mingw32
+info "Software"
+install git
+install autoconf
+install flex
+install bison
+install byacc
+install iftop
+install htop
+install mlocate
+install dia
+install unetbootin
+install ranger
+info "Conky - Aesthetics"
+install conky-all
+install conky-manager
+info "Terminal utilities ( Terminator)"
+install terminator
+install screen
+install bash-completion
+install zsh
+clone https://github.com/libcrack/bashrc.d
+info "Text Editors ( Kate, Hex)" 
+install kate
+install hexedit
+install him
+info "Networking tools"
+install vlan
+install tshark
+install ethtool
+info "Sniffers"
+install tcpdump
+install wireshark
+install ngrep
+info "Wine"  
+dpkg --add-architecture i386
+install wine # for wine when installed on 64bit
+install wine-bin:i386  
+info "Nmap script update"
+nmap --script-update
 
 }
 
+manual()
+{
+  info "Perform the following: Application Menu -> Settings -> Appearance (default font size - 10 - changed to 13)"
+  info "Terminal Font - default 12 -> 13, set to transparent background , changed font color to white"
+  info "Perform the following: Keyboard Shortcuts -> Add custom shortcut -> Terminal - gnome-terminal -> Shortcut : Press CTRL ALT T"
+}
 
 
 clients(){
 ## RDP clients
-echo -e "${YELLOW}[+] RDP clients${RESET}"
-apt-get install remmina -y
-apt-get install freerdp-* -y
-apt-get install remmina-* -y
-echo -e "${YELLOW}[+] finger${RESET}"
-apt-get install finger -y
-echo -e "${YELLOW}[+] rlogin,rsh client, putty,tftp, filezilla${RESET}"
-apt-get install rsh-client -y
-apt-get install putty -y
-apt-get install rwho -y
-apt-get install tftp -y
-apt-get install filezilla filezilla-common -y
+msg "RDP clients"
+install remmina
+install freerdp-*
+install remmina-*
+msg "Finger, rsh, rlogin, putty"
+install finger
+install rsh-client
+install putty
+install rwho
+install tftp
+msg "Ftp"
+install filezilla
+install filezilla-common
 }
 
 archive()
 {
 ## Archive software
-echo -e "${IBLUE}[+] Archive utilities - rar, 7zip"
-
-apt-get install unace -y
-apt-get install rar -y
-apt-get install unrar -y
-apt-get install p7zip -y
-apt-get install zip -y
-apt-get install unzip -y
-apt-get install p7zip-full -y
-apt-get install p7zip-rar -y
-apt-get install file-roller -y
-apt-get install unrar -y
+msg "Archive utilities (rar, 7zip)"
+install unace
+install rar
+install unrar
+install p7zip
+install zip
+install unzip
+install p7zip-full
+install p7zip-rar
+install file-roller
+install unrar
 }
 
-kali_su()
+extras()
 {
 ## KALI additional software set up
-echo -e "${GREEN}[+]Updating Metasploit${RESET}"
-msfupdate
-
-echo -e "${BLUE}[+] Open Office"
-apt-get install openoffice.org -y
-
-apt-get install gtk-recordmydesktop recordmydesktop -y
+msg "Open Office"
+install openoffice.org
+install gtk-recordmydesktop 
+install recordmydesktop
 
 }
 
 
 password_cracking(){
-apt-get install john -y 
+install john 
 #download and have noobify for quick l337 of words
-iceweasel https://sites.google.com/site/reusablesec/Home/password-cracking-tools/noobify
+mkdir dictionaries
+cd dictionaries
+download https://sites.google.com/site/reusablesec/Home/password-cracking-tools/noobify/noobify.tgz?attredirects=0&d=1
 #korelogic rules
-wget http://contest-2010.korelogic.com/rules.txt -O korelogic-rules-forjohn.txt
+download http://contest-2010.korelogic.com/rules.txt -O korelogic-rules-forjohn.txt
+#crackstation
+download https://crackstation.net/files/crackstation-human-only.txt.gz 
+download http://scrapmaker.com/download/data/wordlists/dictionaries/rockyou.txt.bz2
+cd ..
 }
 
 wireless(){
@@ -182,60 +199,40 @@ wireless(){
 	####### /etc/modprobe.d/customintel6300N.conf
 	####### In that file add the line:
 	####### options iwlagn bt_coex_active=0
-	echo -e "${YELLOW}[+] Adding The following repository to sources.list and setting up wireless${RESET}"
-    echo -e "${YELLOW}[+] deb http://http.debian.net/debian/ wheezy main non-free${RESET}"
+	info "Adding The following repository to sources.list and setting up wireless"
+    info "deb http://http.debian.net/debian/ wheezy main non-free"
     echo "deb http://http.debian.net/debian/ wheezy main non-free" > /etc/apt/sources.list
-	apt-get install wireless-tools
-	apt-get install aircrack-ng
-	apt-get install wireless-linux
-    apt-get install firmware-iwlwif
+	install wireless-tools
+	install aircrack-ng
+	install wireless-linux
+    install firmware-iwlwif
     #sudo nano /etc/apt/sources.list you need to add 
     #deb http://http.debian.net/debian/ wheezy main non-free
 }
 
 sniffers(){
-echo -e "${YELLOW}[+] tcpdump , sniffers etc.${RESET}"
+info "tcpdump , sniffers etc."
 
 #wget http://www.tcpdump.org/release/libpcap-1.6.2.tar.gz
 #tar -xvf libpcap-1.6.2 # ./configure --prefix=/usr
 #sudo ./configure
 #$ sudo make
 #$ sudo make install
-apt-get install tcpdump -y
-apt-get install wireshark -y
-apt-get install ngrep -y
-git clone https://github.com/superkojiman/snuff/blob/master/snuff.sh #mitm, sslstrip and arp
+clone https://github.com/superkojiman/snuff/blob/master/snuff.sh #mitm, sslstrip and arp
+info "yersinia"
+install yersinia
 }
 
 scanning(){
-echo -e "${YELLOW}[+] nbtscan${RESET}"
-apt-get install nbtscan -y
-echo -e "${YELLOW}[+] arp-scan${RESET}"
-apt-get install arp-scan -y
-echo -e "${YELLOW}[+] ike-scan${RESET}"
-apt-get install ike-scan -y
-git clone https://github.com/SECFORCE/sparta
-#echo -e "${YELLOW}[+] unicorn-scan"
-apt-get install python-elixir
-#echo -e "${YELLOW}[+] nbtscan"
-mkdir ./nbtscan
-cd nbtscan
-wget http://www.unixwiz.net/tools/nbtscan-source-1.0.35.tgz
-tar -xvf nbtscan-source-1.0.35.tgz
-make
-cd ..
-echo -e "${YELLOW}[+] yersinia${RESET}"
-apt-get install yersinia -y
-
-
-
-}
-
-arp_ike_scan()
-{
-
-echo -e "${YELLOW}[+] ike-scan"
-git clone https://github.com/royhills/ike-scan.git
+msg "Installing scanning tools (nbstscan, arp-scan)"
+info "nbtscan"
+install nbtscan
+info "arp-scan"
+install arp-scan
+info "ike-scan"
+install ike-scan
+info "ike-scan - git"
+clone https://github.com/royhills/ike-scan.git
 cd ike-scan
 autoreconf --install
 ./configure --with-openssl
@@ -243,31 +240,43 @@ make
 make check
 make install
 cd ..
-echo -e "${YELLOW}[+] arp-scan"
-git clone https://github.com/royhills/arp-scan.git
+info "arp-scan - git"
+clone https://github.com/royhills/arp-scan.git
 cd arp-scan
 autoreconf --install
 ./configure
 make check
 make install
 cd ..
+clone https://github.com/SECFORCE/sparta
+#info "unicorn-scan"
+install python-elixir
+info "nbtscan (unixwiz)"
+mkdir ./nbtscan
+cd nbtscan
+download http://www.unixwiz.net/tools/nbtscan-source-1.0.35.tgz
+tar -xvf nbtscan-source-1.0.35.tgz
+make
+cd ..
+clone https://github.com/ChrisTruncer/EyeWitness.git #eyewitness to scan web servers try default creds and take screenshots
 }
 
-portcullis_labs()
+pcsl()
 {
-echo -e "${PURPLE}[+] PCSL Labs tools download${RESET}"
-mkdir ./labs
-cd labs
-wget --no-check-certificate https://labs.portcullis.co.uk/download/onesixtyone-0.7.tar.gz
-wget --no-check-certificate https://labs.portcullis.co.uk/download/udp-proto-scanner-1.1.tar.gz
-wget --no-check-certificate https://labs.portcullis.co.uk/download/hoppy-1.8.1.tar.bz2
-wget --no-check-certificate https://labs.portcullis.co.uk/download/nopc-0.4.5.tar.bz2
-wget --no-check-certificate https://labs.portcullis.co.uk/download/enum4linux-0.8.9.tar.gz
-wget --no-check-certificate https://labs.portcullis.co.uk/download/winlanfoe-0.4.tgz
-wget --no-check-certificate https://labs.portcullis.co.uk/download/ames.py.tgz
-wget --no-check-certificate https://labs.portcullis.co.uk/download/rdp-sec-check-0.9.tgz
-wget --no-check-certificate https://labs.portcullis.co.uk/download/iker_v1.1.tar
-wget --no-check-certificate https://labs.portcullis.co.uk/download/tools/ssl-cipher-suite-enum-v1.0.0.tar.gz
+msg " Portcullis Labs tools download"
+mkdir ./pcsl
+cd pcsl
+download https://labs.portcullis.co.uk/download/onesixtyone-0.7.tar.gz
+download https://labs.portcullis.co.uk/download/udp-proto-scanner-1.1.tar.gz
+download https://labs.portcullis.co.uk/download/hoppy-1.8.1.tar.bz2
+download https://labs.portcullis.co.uk/download/nopc-0.4.7.tar.bz2
+download https://labs.portcullis.co.uk/download/enum4linux-0.8.9.tar.gz
+download https://labs.portcullis.co.uk/download/winlanfoe-0.4.tgz
+download https://labs.portcullis.co.uk/download/ames.py.tgz
+download https://labs.portcullis.co.uk/download/rdp-sec-check-0.9.tgz
+download https://labs.portcullis.co.uk/download/iker_v1.1.tar
+download https://labs.portcullis.co.uk/download/FreeRDP-pth.tar.gz
+download https://labs.portcullis.co.uk/download/tools/ssl-cipher-suite-enum-v1.0.0.tar.gz
 tar -xvf *.tar.gz
 cd ..
 # for rdp sec
@@ -278,133 +287,126 @@ perl -MCPAN -e "install Convert::BER"
 
 windows_priv_esc()
 {
-git clone https://github.com/hfiref0x/CVE-2015-1701.git
-git clone https://github.com/monoxgas/Trebuchet
+clone https://github.com/hfiref0x/CVE-2015-1701.git
+clone https://github.com/monoxgas/Trebuchet
 }
 
 linux_post()
 {
-git clone https://github.com/pentestmonkey/unix-privesc-check
-git clone https://github.com/rebootuser/LinEnum.git
-git clone https://github.com/dwin999/ptscripts/blob/master/revershelloneliners.sh
+clone https://github.com/pentestmonkey/unix-privesc-check
+clone https://github.com/rebootuser/LinEnum.git
+clone https://github.com/dwin999/ptscripts/blob/master/revershelloneliners.sh
 
 	
 }
 
 windows_binary()
 {
-	git clone https://github.com/Microsoft/binskim
+	clone https://github.com/Microsoft/binskim
 }
 
 ssl()
 {
-git clone https://github.com/drwetter/testssl.sh
-git clone https://github.com/google/nogotofail
-
-
+clone https://github.com/drwetter/testssl.sh
 }
 
 java(){
-echo -e "${GREEN}[+] Java, 3rd party${RESET}"
+msg "Java, 3rd party"
+http://www.oracle.com/technetwork/java/javase/downloads/index.html
 #http://www.oracle.com/technetwork/java/javase/downloads/index.html
-#http://www.oracle.com/technetwork/java/javase/downloads/index.html
-#wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jdk-8u45-linux-x64.tar.gz"
+info "Downloading java from oracle.com"
+wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jdk-8u45-linux-x64.tar.gz"
 #Untar the Archive
-#tar -xzvf /root/jdk-7u17-linux-x64.tar.gz
-#mv jdk1.7.0_17 /opt
-#cd /opt/jdk1.7.0_17
+tar -xzvf jdk-8u45-linux-x64.tar.gz
+mv jdk1.8.0_45 /opt/
+cd /opt/jdk1.8.0_45
 
 #3.This step registers the downloaded version of Java as an alternative, and switches it to be used as the default:
 
-#update-alternatives --install /usr/bin/java java /opt/jdk1.8.0_25/bin/java 1
-#update-alternatives --install /usr/bin/javac javac /opt/jdk1.8.0_25/bin/javac 1
-#update-alternatives --install /usr/lib/mozilla/plugins/libjavaplugin.so mozilla-javaplugin.so /opt/jdk1.8.0_25/jre/lib/amd64/libnpjp2.so 1
-#update-alternatives --set java /opt/jdk1.8.0_25/bin/java
-#update-alternatives --set javac /opt/jdk1.8.0_25/bin/javac
-#update-alternatives --set mozilla-javaplugin.so /opt/jdk1.8.0_25/jre/lib/amd64/libnpjp2.so
-
-
-#4. Test
-
-#To check the version of Java you are now running
-
-#java -version
-
-apt-get install default-jre  default-jdk -y
-#update-java-alternatives -s java-6-sun
+update-alternatives --install /usr/bin/java java /opt/jdk1.8.0_45/bin/java 1
+update-alternatives --install /usr/bin/javac javac /opt/jdk1.8.0_45/bin/javac 1
+update-alternatives --install /usr/lib/mozilla/plugins/libjavaplugin.so mozilla-javaplugin.so /opt/jdk1.8.0_45/jre/lib/amd64/libnpjp2.so 1
+update-alternatives --set java /opt/jdk1.8.0_45/bin/java
+update-alternatives --set javac /opt/jdk1.8.0_45/bin/javac
+update-alternatives --set mozilla-javaplugin.so /opt/jdk1.8.0_45/jre/lib/amd64/libnpjp2.so
+msg "Java, from repo"
+install default-jre
+install default-jdk
+java -version
+cd $CURRENT
 }
 
 discover()
 {
 mkdir discover
 cd discover
-git clone https://github.com/leebaird/discover /opt/discover/
-cd ..
+clone https://github.com/leebaird/discover /opt/discover/
+cd /opt/discover
+cd $CURRENT
 }
 
 smb(){
-mkdir smb_tools
-cd smb_tools
-echo -e "${IRED}[+] SMBEXEC and RESPONDER and CrackMapExec"
-git clone https://github.com/brav0hax/smbexec.git
-git clone https://github.com/SpiderLabs/Responder.git
-git clone https://github.com/mubix/FakeNetBIOS
-git clone https://github.com/byt3bl33d3r/CrackMapExec
-git clone https://github.com/Raikia/CredNinja
-git clone https://github.com/ChrisTruncer/WMIOps
-git clone https://github.com/adaptivethreat/BloodHound
+mkdir smb-tools
+cd smb-tools
+info "Smb tools, responder, smbexec etc.."
+clone https://github.com/brav0hax/smbexec.git
+clone https://github.com/SpiderLabs/Responder.git
+clone https://github.com/mubix/FakeNetBIOS
+clone https://github.com/byt3bl33d3r/CrackMapExec
+clone https://github.com/Raikia/CredNinja
+clone https://github.com/ChrisTruncer/WMIOps
+clone https://github.com/adaptivethreat/BloodHound
 cd ..
 }
 
 whitelist_bypass()
 {
-  git clone https://github.com/fdiskyou/PowerOPS/
-  git clone https://github.com/Cn33liz/p0wnedShell
-  git clone https://github.com/Cn33liz/SharpCat
-  git clone https://github.com/khr0x40sh/WhiteListEvasion
-  git clone https://github.com/subTee/AllTheThings
+  mkdir whitelist 
+  cd whitelist
+  clone https://github.com/fdiskyou/PowerOPS/
+  clone https://github.com/Cn33liz/p0wnedShell
+  clone https://github.com/Cn33liz/SharpCat
+  clone https://github.com/khr0x40sh/WhiteListEvasion
+  clone https://github.com/subTee/AllTheThings
+  clone https://gist.github.com/subTee/0b93971e02bbf564220f 
+  clone https://gist.github.com/subTee/7e3f8979eafbe65d63e2
+  cd ..
 }
 
 post_exploit()
 {
-mkdir mubix
-cd mubix
-git clone https://github.com/mubix/post-exploitation.git
-git clone https://github.com/quarkslab/quarkspwdump
-git clone https://github.com/pwnwiki/pwnwiki.github.io.git
-git clone https://github.com/mubix/ditto
-git clone https://github.com/Shellntel/scripts/
-
+mkdir post-exploit
+cd post-exploit
+clone https://github.com/mubix/post-exploitation.git
+clone https://github.com/quarkslab/quarkspwdump
+clone https://github.com/pwnwiki/pwnwiki.github.io.git
+clone https://github.com/mubix/ditto
+clone https://github.com/Shellntel/scripts/
+clone https://github.com/bidord/pykek
+clone https://github.com/gentilkiwi/mimikatz.git
+clone https://github.com/adamkramer/dll_hijack_detect/releases
+mkdir meterpreter-loaders
+cd meterpreter-loaders
+clone https://github.com/rsmudge/metasploit-loader #rsmudge metasploit loader
+clone https://github.com/SherifEldeeb/inmet.git
+clone https://github.com/SherifEldeeb/TinyMet.git
 cd ..
-
-git clone https://github.com/bidord/pykek
-git clone https://github.com/ChrisTruncer/EyeWitness.git #eyewitness to scan web servers try default creds and take screenshots
-git clone https://github.com/GDSSecurity/Windows-Exploit-Suggester.git
-git clone https://github.com/gentilkiwi/mimikatz.git
-git clone https://github.com/adamkramer/dll_hijack_detect/releases
-mkdir meterpreter_loaders
-cd meterpreter_loaders
-git clone https://github.com/rsmudge/metasploit-loader #rsmudge metasploit loader
-git clone https://github.com/SherifEldeeb/inmet.git
-git clone https://github.com/SherifEldeeb/TinyMet.git
-cd ..
-git clone https://github.com/iagox86/dnscat2.git
-git clone https://github.com/Cn33liz/Inveigh
-git clone https://github.com/Cn33liz/p0wnedShell
-git clone https://github.com/subTee/PoshRat
-git clone https://github.com/cyberisltd/NcatPortable
-git clone https://github.com/denandz/KeeFarce
-git clone https://github.com/pentestify/competition-modules
+clone https://github.com/iagox86/dnscat2.git
+clone https://github.com/Cn33liz/Inveigh
+clone https://github.com/Cn33liz/p0wnedShell
+clone https://github.com/subTee/PoshRat
+clone https://github.com/cyberisltd/NcatPortable
+clone https://github.com/denandz/KeeFarce
+clone https://github.com/pentestify/competition-modules
 mkdir windows-exploits
 cd windows-exploits
-git clone https://github.com/foxglovesec/Potato
-git clone https://github.com/Cn33liz/p0wnedShell
-git clone https://github.com/Cn33liz/SmashedPotato
-
+clone https://github.com/foxglovesec/Potato
+clone https://github.com/Cn33liz/SmashedPotato
+clone https://github.com/GDSSecurity/Windows-Exploit-Suggester.git
 cd ..
-## libcrak - bash
-git clone https://github.com/libcrack/bashrc.d
-git clone https://github.com/a0rtega/pafish
+cd $CURRENT
+
+
 
 }
 
@@ -412,17 +414,17 @@ thpb2()
 {
 	mkdir thpb2
 	cd thpb2
-	git clone https://github.com/cheetz/PowerTools.git
-	git clone https://github.com/cheetz/c2
-	git clone https://github.com/cheetz/Easy-P.git
+	clone https://github.com/cheetz/PowerTools.git
+	clone https://github.com/cheetz/c2
+	clone https://github.com/cheetz/Easy-P.git
 	cd ..
 }
 
 egress()
 {
 	mkdir egress
-	git clone https://github.com/trustedsec/egressbuster
-	git clone https://github.com/ChrisTruncer/Egress-Assess.git
+	clone https://github.com/trustedsec/egressbuster
+	clone https://github.com/ChrisTruncer/Egress-Assess.git
 	cd ..
 	
 }
@@ -430,13 +432,13 @@ egress()
 shellshock()
 {
 
-git clone https://github.com/mubix/shellshocker-pocs
+clone https://github.com/mubix/shellshocker-pocs
 
 }
 
 heartbleed()
 {
-git clone https://github.com/sensepost/heartbleed-poc.git
+clone https://github.com/sensepost/heartbleed-poc.git
 }
 
 
@@ -446,137 +448,148 @@ powershell()
 {
 mkdir powershell
 cd powershell
-git clone https://github.com/HarmJ0y/PowerUp
-git clone https://github.com/Cn33liz/p0wnedShell
-git clone https://github.com/PowerShellMafia/PowerSploit
-git clone https://github.com/HarmJ0y/CheatSheets
-git clone https://github.com/samratashok/nishang
-git clone https://github.com/pjhartlieb/post-exploitation.git
-git clone https://github.com/putterpanda/mimikittenz
-git clone https://github.com/mattifestation/PowerSploit.git
-git clone https://github.com/PyroTek3/PowerShell-AD-Recon.git
-git clone https://github.com/silverhack/voyeur
-git clone https://github.com/nullbind/Powershellery.git
-git clone https://github.com/Veil-Framework/Veil.git
-git clone https://github.com/trustedsec/unicorn.git
-git clone https://github.com/silentsignal/wpc-ps.git
-git clone https://github.com/jaredhaight/PSAttackBuildTool
-git clone https://github.com/b00stfr3ak/fast_meterpreter
-git clone https://github.com/obscuresec/random/blob/master/EncodeShell.py
-git clone https://github.com/nullbind/Powershellery/blob/master/Stable-ish/Get-SPN/Get-SPN.psm1
-git clone https://github.com/cheetz/Easy-P.git
-git clone https://github.com/darkoperator/Posh-SecMod.git
-git clone https://github.com/besimorhino/powercat.git
-git clone https://github.com/mattifestation/PowerShellArsenal.git
-git clone https://github.com/subTee/PoshRat.git
-git clone https://github.com/giMini/RWMC
-git clone https://github.com/PowerShellEmpire/Empire.git
-git clone https://github.com/NetSPI/PowerUpSQL
-git clone https://github.com/leechristensen/UnmanagedPowerShell
+clone https://github.com/HarmJ0y/PowerUp
+clone https://github.com/Cn33liz/p0wnedShell
+clone https://github.com/PowerShellMafia/PowerSploit
+clone https://github.com/HarmJ0y/CheatSheets
+clone https://github.com/samratashok/nishang
+clone https://github.com/pjhartlieb/post-exploitation.git
+clone https://github.com/putterpanda/mimikittenz
+clone https://github.com/PyroTek3/PowerShell-AD-Recon.git
+clone https://github.com/silverhack/voyeur
+clone https://github.com/nullbind/Powershellery.git
+clone https://github.com/Veil-Framework/Veil.git
+clone https://github.com/trustedsec/unicorn.git
+clone https://github.com/silentsignal/wpc-ps.git
+clone https://github.com/jaredhaight/PSAttackBuildTool
+clone https://github.com/b00stfr3ak/fast_meterpreter
+clone https://github.com/obscuresec/random/blob/master/EncodeShell.py
+clone https://github.com/nullbind/Powershellery/blob/master/Stable-ish/Get-SPN/Get-SPN.psm1
+clone https://github.com/cheetz/Easy-P.git
+clone https://github.com/darkoperator/Posh-SecMod.git
+clone https://github.com/besimorhino/powercat.git
+clone https://github.com/mattifestation/PowerShellArsenal.git
+clone https://github.com/subTee/PoshRat.git
+clone https://github.com/giMini/RWMC
+clone https://github.com/PowerShellEmpire/Empire.git
+clone https://github.com/NetSPI/PowerUpSQL
+clone https://github.com/leechristensen/UnmanagedPowerShell
+
 cd ..
 mkdir cobalt
-git clone https://github.com/rvrsh3ll/POSH-Commander
+clone https://github.com/rvrsh3ll/POSH-Commander
+https://github.com/kussic/CS-KickassBot/blob/master/kickassbot.cna
+https://github.com/rsmudge/Malleable-C2-Profiles/tree/master/normal
 cd ..
-
 mkdir macros
 cd macros
-git clone https://github.com/enigma0x3/Powershell-Payload-Excel-Delivery.git
-git clone https://github.com/enigma0x3/psh_web_delivery-Macro_Delivery.git
-git clone https://github.com/webstersprodigy/webstersprodigy.git
-git clone https://github.com/enigma0x3/Generate-Macro.git
-git clone https://github.com/enigma0x3/Powershell-Infection.git
-git clone https://github.com/enigma0x3/PowershellProfile.git
-git clone https://github.com/enigma0x3/Powershell-Infection.git
-git clone https://github.com/enigma0x3/Powershell-C2.git
-git clone https://github.com/khr0x40sh/MacroShop
+clone https://github.com/enigma0x3/Powershell-Payload-Excel-Delivery.git
+clone https://github.com/enigma0x3/psh_web_delivery-Macro_Delivery.git
+clone https://github.com/webstersprodigy/webstersprodigy.git
+clone https://github.com/enigma0x3/Generate-Macro.git
+clone https://github.com/enigma0x3/PowershellProfile.git
+clone https://github.com/enigma0x3/Powershell-C2.git
+clone https://github.com/khr0x40sh/MacroShop
 cd ..
-cd ..
+cd $CURRENT
 }
 
 
 
 recon()
 {
-git clone https://github.com/Easy-Forex/Verify-emails
-git clone https://github.com/samwize/pyExtractor.git
-git clone https://github.com/nccgroup/WebFEET.git
-git clone https://github.com/Hypsurus/ftpmap
-git clone https://github.com/michenriksen/gitrob
-git clone https://github.com/Pickfordmatt/Prowl.git
-git clone https://github.com/philhagen/ip2geo
-git clone https://github.com/upgoingstar/datasploit
-	
+info "Recon and Info gathering tools"
+mkdir recon
+cd recon
+clone https://github.com/Easy-Forex/Verify-emails
+clone https://github.com/samwize/pyExtractor.git
+clone https://github.com/nccgroup/WebFEET.git
+clone https://github.com/Hypsurus/ftpmap
+clone https://github.com/michenriksen/gitrob
+clone https://github.com/Pickfordmatt/Prowl.git
+clone https://github.com/philhagen/ip2geo
+clone https://github.com/upgoingstar/datasploit
+cd ..
+cd $CURRENT
 }
 
 webapp()
 {
+info "Web app tools, lfi, dirsearch"
 mkdir webapp
 cd webapp
-git clone https://github.com/maurosoria/dirs3arch.git	
-git clone https://github.com/m101/lfipwn/blob/master/lfipwn.py
+clone https://github.com/maurosoria/dirs3arch.git	
+clone https://github.com/m101/lfipwn/blob/master/lfipwn.py
 cd ..	
+cd $CURRENT
 }
 
 phishing()
 {
-	git clone https://github.com/cheetz/spearphishing
-	git clone https://github.com/Section9Labs/Cartero
-	git clone https://gist.github.com/monoxgas/7fec9ec0f3ab405773fc
+	mkdir phish
+	cd phish
+	clone https://github.com/cheetz/spearphishing
+	clone https://github.com/Section9Labs/Cartero
+	clone https://gist.github.com/monoxgas/7fec9ec0f3ab405773fc
+	cd ..
+	cd $CURRENT
 }
 
 lateral()
 {
 	mkdir lateral
 	cd lateral
-	git clone https://github.com/poweradminllc/PAExec
-	git clone https://github.com/secabstraction/Create-WMIshell
-	git clone https://github.com/cyberisltd/OpenVPN-RAT-Bridge
+	clone https://github.com/poweradminllc/PAExec
+	clone https://github.com/secabstraction/Create-WMIshell
+	clone https://github.com/cyberisltd/OpenVPN-RAT-Bridge
 	mkdir kerberos
-	git clone https://github.com/nidem/kerberoast
-	git clone https://github.com/gentilkiwi/kekeo
-	git clone https://github.com/rvazarkar/KrbCredExport
+	clone https://github.com/nidem/kerberoast
+	clone https://github.com/gentilkiwi/kekeo
+	clone https://github.com/rvazarkar/KrbCredExport
 	cd ..
 	cd ..
+	cd $CURRENT
 }
 
 network_tools
 {
 #http://www.commonexploits.com/penetration-testing-scripts/
-echo -e "${GREEN}[+] Downloading Common Exploits${RESET}"
+info "Downloading Common Exploits Repository - Vlan hopping, cisco snmp enum etc."
 
 mkdir ./network_tools
 cd network_tools
-git clone https://github.com/commonexploits/dtpscan.git
-git clone https://github.com/commonexploits/livehosts
-git clone https://github.com/commonexploits/port-scan-automation
-git clone https://github.com/commonexploits/whatsfree
-git clone https://github.com/commonexploits/weape
-git clone https://github.com/commonexploits/winocphc
-git clone https://github.com/commonexploits/ipgen
-git clone https://github.com/commonexploits/vlan-hopping
-git clone https://github.com/commonexploits/icmpsh
-git clone https://github.com/nccgroup/cisco-SNMP-enumeration
-git clone https://github.com/commonexploits/cisco-SNMP-enumeration/
-git clone https://github.com/nccgroup/vlan-hopping---frogger
+clone https://github.com/commonexploits/dtpscan.git
+clone https://github.com/commonexploits/livehosts
+clone https://github.com/commonexploits/port-scan-automation
+clone https://github.com/commonexploits/whatsfree
+clone https://github.com/commonexploits/weape
+clone https://github.com/commonexploits/winocphc
+clone https://github.com/commonexploits/ipgen
+clone https://github.com/commonexploits/vlan-hopping
+clone https://github.com/commonexploits/icmpsh
+clone https://github.com/nccgroup/cisco-SNMP-enumeration
+clone https://github.com/commonexploits/cisco-SNMP-enumeration/
+clone https://github.com/nccgroup/vlan-hopping---frogger
 
 cd ..
+cd $CURRENT
 }
 
 
 servers(){
-echo -e "${YELLOW}[+] Tftp server${RESET}"
-apt-get install atftpd -y
+info "Tftp server"
+install atftpd
 echo "atftpd --daemon --port 69 --bind-address yourip /tmp"
 echo "netstat -anu | grep 69"
-#echo -e "${YELLOW}[+] RDP server"
-#apt-get install xrdp -y
+#info "RDP server"
+#install xrdp
 }
 
 news()
 {
 	mkdir news
 	cd news
-	git clone https://github.com/fdiskyou/feedme
+	clone https://github.com/fdiskyou/feedme
 	cd ..
 	
 }
@@ -584,27 +597,27 @@ news()
 
 clamav()
 {
-  apt-get install clamav
-  apt-get install clamav-freshclam
-  sudo apt-get install clamtk
+  install clamav
+  install clamav-freshclam
+  install clamtk
   
 }
 
 
 virtualbox()
 {
-apt-get install virtualbox virtualbox-guest-x11 virtualbox-guest-utils virtualbox-guest-additions -y
-apt-get install virtualbox-ose-dkms -y
+install virtualbox virtualbox-guest-x11 virtualbox-guest-utils virtualbox-guest-additions
+install virtualbox-ose-dkms
 }
 
 
 virtual_machine_kvm()
 {
 
-apt-get install virt-manager -y
-apt-get install libvirt-bin -y
-apt-get install ssh-askpass -y
-apt-get install virt-goodies -y
+install virt-manager
+install libvirt-bin
+install ssh-askpass
+install virt-goodies
 }
 
 
@@ -612,66 +625,68 @@ nvidia()
 {
 echo test
 #############NVIDIA CHIPSET#######################################
-echo -e "${PURPLE}[+]Adding NVIDIA repository"
+msg "Adding NVIDIA repository"
 add-apt-repository ppa:ubuntu-x-swat/x-updates
-echo -e "${PURPLE}[+]Setting up Nvidia Drivers "
-apt-get update && apt-get install nvidia-current nvidia-current-modaliases nvidia-settings
+msg "Setting up Nvidia Drivers "
+apt-get update && install nvidia-current nvidia-current-modaliases nvidia-settings
 echo -e "${GREEN}[i]Reboot and ${BLUE}nvidia-xconfig"
 }
 
 howto()
 {
 mkdir howto
-git clone https://github.com/StarshipEngineer/OpenVPN-Setup
-git clone https://github.com/stackp/Droopy
+clone https://github.com/StarshipEngineer/OpenVPN-Setup
+clone https://github.com/stackp/Droopy
 cd ..
 }
 
 defence(){
+	msg "Defensive and Hunting scripts and tools"
 	mkdir defence
 	cd defence
-	git clone https://github.com/micheloosterhof/cowrie
+	clone https://github.com/micheloosterhof/cowrie
+	clone https://github.com/a0rtega/pafish
+	clone https://github.com/apthunting/APT-Hunter
 	cd ..
 	
 }
 
-
-#display_usage;
-initial_su;
-sudo_su;
-pre-reqs;
+usage;
+init;
+prereqs;
+sudo_setup;
 clients;
 archive;
-kali_su;
+extras;
 password_cracking;
+#wireless
 sniffers;
 scanning;
-discover;
-portcullis_labs;
-arp_ike_scan;
-
+pcsl;
 windows_priv_esc;
-powershell;
-lateral;
-linux_post;
-#java;
+discover;
 ssl;
-heartbleed;
-shellshock;
-recon;
-webapp;
-phishing;
-news;
-network_tools;
-howto;s
-servers;
-thpb2;
+java;
 smb;
 whitelist_bypass;
-windows_binaries;
-#clamav;
-#virtual_machine_kvm;
-#virtualbox;
-#wireless;
-#nvidia;
+post_exploit;
+thpb2;
+egress;
+shellshock;
+heartbleed;
+powershell;
+recon;
+webapp;
+lateral;
+news;
+clamav;
+defence;
+howto;
+
+
+
+
+
+
+
 

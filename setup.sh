@@ -515,12 +515,16 @@ cd $CURRENT
 
 webapp()
 {
-info "Web app tools, lfi, dirsearch"
+info "Web app tools, lfi, dirsearch and mobile"
 mkdir webapp
 cd webapp
 clone https://github.com/maurosoria/dirs3arch.git	
 clone https://github.com/m101/lfipwn/blob/master/lfipwn.py
 cd ..	
+mkdir mobile
+cd mobile
+clone https://github.com/mwrlabs/needle
+cd ..
 cd $CURRENT
 }
 
@@ -647,6 +651,7 @@ defence(){
 	clone https://github.com/micheloosterhof/cowrie
 	clone https://github.com/a0rtega/pafish
 	clone https://github.com/apthunting/APT-Hunter
+	clone https://github.com/davehull/Get-StakRank
 	cd ..
 	
 }

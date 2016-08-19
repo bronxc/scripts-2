@@ -310,7 +310,7 @@ ssl()
 clone https://github.com/drwetter/testssl.sh
 }
 
-java(){
+java-setup(){
 msg "Java, 3rd party"
 http://www.oracle.com/technetwork/java/javase/downloads/index.html
 #http://www.oracle.com/technetwork/java/javase/downloads/index.html
@@ -670,7 +670,7 @@ pcsl;
 windows_priv_esc;
 discover;
 ssl;
-java;
+java-setup;
 smb;
 whitelist_bypass;
 post_exploit;

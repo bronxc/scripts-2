@@ -384,7 +384,14 @@ clone https://github.com/mubix/ditto
 clone https://github.com/Shellntel/scripts/
 clone https://github.com/bidord/pykek
 clone https://github.com/gentilkiwi/mimikatz.git
-clone https://github.com/adamkramer/dll_hijack_detect/releases
+mkdir dll_hijack_detect
+cd dll_hijack_detect
+clone https://github.com/adamkramer/dll_hijack_detect
+download https://github.com/adamkramer/dll_hijack_detect/releases/download/v1.0/dll_hijack_detect_x64.exe
+download https://github.com/adamkramer/dll_hijack_detect/releases/download/v1.0/dll_hijack_detect_x86.exe
+download https://github.com/adamkramer/dll_hijack_detect/releases/download/v1.0/dll_hijack_test.exe
+download https://github.com/adamkramer/dll_hijack_detect/releases/download/v1.0/dll_hijack_test_dll.dll
+cd ..
 mkdir meterpreter-loaders
 cd meterpreter-loaders
 clone https://github.com/rsmudge/metasploit-loader #rsmudge metasploit loader

@@ -364,6 +364,7 @@ whitelist_bypass()
   mkdir whitelist 
   cd whitelist
   clone https://github.com/fdiskyou/PowerOPS/
+  clone https://github.com/fdiskyou/PSShell
   clone https://github.com/Cn33liz/p0wnedShell
   clone https://github.com/Cn33liz/SharpCat
   clone https://github.com/khr0x40sh/WhiteListEvasion

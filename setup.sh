@@ -385,6 +385,8 @@ clone https://github.com/mubix/ditto
 clone https://github.com/Shellntel/scripts/
 clone https://github.com/bidord/pykek
 clone https://github.com/gentilkiwi/mimikatz.git
+clone https://github.com/mwrlabs/XRulez
+clone https://github.com/sensepost/ruler
 mkdir dll_hijack_detect
 cd dll_hijack_detect
 clone https://github.com/adamkramer/dll_hijack_detect

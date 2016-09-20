@@ -667,6 +667,7 @@ defence(){
 	clone https://github.com/davehull/Get-StakRank
 	clone https://github.com/theonehiding/ShimCacheParser
 	clone https://github.com/theonehiding/ShimCacheCollector
+	clone https://github.com/paralax/awesome-honeypots
 	cd ..
 	
 }

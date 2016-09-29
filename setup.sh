@@ -676,6 +676,7 @@ defence(){
 ios_tools(){
 
 msg "iOS Application testing tools"
+clone https://github.com/tanprathan/MobileApp-Pentest-Cheatsheet
 msg "MWR Needle"
 clone https://github.com/mwrlabs/needle.git
 msg "Needle and mobile testing pre-reqs"

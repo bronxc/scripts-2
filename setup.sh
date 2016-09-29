@@ -289,6 +289,7 @@ windows_priv_esc()
 {
 clone https://github.com/hfiref0x/CVE-2015-1701.git
 clone https://github.com/monoxgas/Trebuchet
+clone https://github.com/foxglovesec/RottenPotato
 }
 
 linux_post()
@@ -670,6 +671,23 @@ defence(){
 	clone https://github.com/paralax/awesome-honeypots
 	cd ..
 	
+}
+
+ios_tools(){
+
+msg "iOS Application testing tools"
+msg "MWR Needle"
+clone https://github.com/mwrlabs/needle.git
+msg "Needle and mobile testing pre-reqs"
+# Unix packages
+apt-get install python2.7 python2.7-dev sshpass sqlite3 libimobiledevice4 libimobiledevice-utils lib32ncurses5-dev
+# Python packages
+pip install readline
+pip install paramiko
+pip install sshtunnel
+pip install frida
+pip install mitmproxy
+
 }
 
 #usage;

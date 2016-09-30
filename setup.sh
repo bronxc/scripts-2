@@ -437,6 +437,7 @@ egress()
 	cd egress
 	clone https://github.com/trustedsec/egressbuster
 	clone https://github.com/ChrisTruncer/Egress-Assess.git
+	clone https://github.com/Shellntel/websocket_egress
 	cd ..
 	cd $CURRENT
 }

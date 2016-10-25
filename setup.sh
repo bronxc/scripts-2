@@ -692,6 +692,14 @@ pip install mitmproxy
 
 }
 
+fingerprinting(){
+ msg "Fingerprinting - AV detection"
+ mkdir fingerprint
+ cd fingerprint
+ clone https://github.com/vah13/AVDetection
+ cd ..
+}
+
 #usage;
 init;
 prereqs;

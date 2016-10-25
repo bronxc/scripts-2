@@ -730,9 +730,11 @@ lateral;
 news;
 clamav;
 defence;
+fingerprinting;
 howto;
 sudo_setup;
 manual;
+
 
 
 

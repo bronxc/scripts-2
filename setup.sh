@@ -357,6 +357,7 @@ clone https://github.com/byt3bl33d3r/CrackMapExec
 clone https://github.com/Raikia/CredNinja
 clone https://github.com/ChrisTruncer/WMIOps
 clone https://github.com/adaptivethreat/BloodHound
+clone https://github.com/ctxis/wsuspect-proxy
 cd ..
 }
 
@@ -388,6 +389,8 @@ clone https://github.com/bidord/pykek
 clone https://github.com/gentilkiwi/mimikatz.git
 clone https://github.com/mwrlabs/XRulez
 clone https://github.com/sensepost/ruler
+clone https://github.com/tfairane/HackStory
+clone https://github.com/funoverip/mcafee-sitelist-pwd-decryption
 mkdir dll_hijack_detect
 cd dll_hijack_detect
 clone https://github.com/adamkramer/dll_hijack_detect

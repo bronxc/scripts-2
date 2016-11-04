@@ -1,7 +1,8 @@
 #!/bin/bash
 #--------------------------------------#
 # Author: nob1dy 2014-2016     (Update: 2016-08)
-# Description: Post-installation script for Debian/Kali - Configuration
+# Description: 
+-installation script for Debian/Kali - Configuration
 # Operating System: Kali - tested
 # Requirements: Root and Internet Connection
 #--------------------------------------#
@@ -388,6 +389,8 @@ clone https://github.com/Shellntel/scripts/
 clone https://github.com/bidord/pykek
 clone https://github.com/gentilkiwi/mimikatz.git
 clone https://github.com/mwrlabs/XRulez
+clone https://github.com/Shellntel/OWA-Toolkit
+clone https://github.com/dafthack/MailSniper
 clone https://github.com/sensepost/ruler
 clone https://github.com/tfairane/HackStory
 clone https://github.com/funoverip/mcafee-sitelist-pwd-decryption
@@ -408,6 +411,7 @@ cd ..
 clone https://github.com/iagox86/dnscat2.git
 clone https://github.com/Cn33liz/Inveigh
 clone https://github.com/Cn33liz/p0wnedShell
+clone https://github.com/Cn33liz/EasySystem
 clone https://github.com/subTee/PoshRat
 clone https://github.com/cyberisltd/NcatPortable
 clone https://github.com/denandz/KeeFarce

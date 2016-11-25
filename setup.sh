@@ -708,6 +708,10 @@ fingerprinting(){
  cd ..
 }
 
+winapi(){
+clone https://github.com/floodyberry/genwrapper
+}
+
 #usage;
 init;
 prereqs;
@@ -740,6 +744,7 @@ clamav;
 defence;
 fingerprinting;
 howto;
+winapi;
 sudo_setup;
 manual;
 

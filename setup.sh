@@ -532,6 +532,7 @@ clone https://github.com/michenriksen/gitrob
 clone https://github.com/Pickfordmatt/Prowl.git
 clone https://github.com/philhagen/ip2geo
 clone https://github.com/upgoingstar/datasploit
+clone https://github.com/jivoi/awesome-osint
 cd ..
 cd $CURRENT
 }

@@ -2,7 +2,7 @@
 #--------------------------------------#
 # Author: nob1dy 2014-2016     (Update: 2016-08)
 # Description: 
--installation script for Debian/Kali - Configuration
+#-installation script for Debian/Kali - Configuration
 # Operating System: Kali - tested
 # Requirements: Root and Internet Connection
 #--------------------------------------#
@@ -679,6 +679,7 @@ defence(){
 	clone https://github.com/theonehiding/ShimCacheParser
 	clone https://github.com/theonehiding/ShimCacheCollector
 	clone https://github.com/paralax/awesome-honeypots
+	clone https://github.com/LordNoteworthy/al-khaser
 	cd ..
 	
 }

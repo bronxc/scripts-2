@@ -504,8 +504,10 @@ clone https://github.com/leechristensen/UnmanagedPowerShell
 cd ..
 mkdir cobalt
 clone https://github.com/rvrsh3ll/POSH-Commander
-https://github.com/kussic/CS-KickassBot/blob/master/kickassbot.cna
-https://github.com/rsmudge/Malleable-C2-Profiles/tree/master/normal
+clone https://github.com/kussic/CS-KickassBot/blob/master/kickassbot.cna
+clone https://github.com/rsmudge/Malleable-C2-Profiles/tree/master/normal
+clone https://github.com/killswitch-GUI/CobaltStrike-ToolKit
+
 cd ..
 mkdir macros
 cd macros

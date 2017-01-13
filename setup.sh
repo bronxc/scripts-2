@@ -717,6 +717,7 @@ cd winapi
 clone https://github.com/floodyberry/genwrapper
 clone https://github.com/LordNoteworthy/al-khaser
 clone https://github.com/a0rtega/pafish
+clone https://github.com/BreakingMalwareResearch
 cd ..
 }
 

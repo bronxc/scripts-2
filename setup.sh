@@ -391,6 +391,7 @@ clone https://github.com/Shellntel/scripts/
 clone https://github.com/bidord/pykek
 clone https://github.com/gentilkiwi/mimikatz.git
 clone https://github.com/mwrlabs/XRulez
+clone https://github.com/killswitch-GUI/Persistence-Survivability
 clone https://github.com/Shellntel/OWA-Toolkit
 clone https://github.com/dafthack/MailSniper
 clone https://github.com/sensepost/ruler
@@ -528,6 +529,7 @@ mkdir recon
 cd recon
 clone https://github.com/Easy-Forex/Verify-emails
 clone https://github.com/samwize/pyExtractor.git
+clone https://github.com/killswitch-GUI/SimplyEmail
 clone https://github.com/nccgroup/WebFEET.git
 clone https://github.com/Hypsurus/ftpmap
 clone https://github.com/michenriksen/gitrob

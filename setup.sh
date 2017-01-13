@@ -535,6 +535,7 @@ clone https://github.com/Pickfordmatt/Prowl.git
 clone https://github.com/philhagen/ip2geo
 clone https://github.com/upgoingstar/datasploit
 clone https://github.com/jivoi/awesome-osint
+clone https://github.com/hslatman/awesome-threat-intelligence
 cd ..
 cd $CURRENT
 }

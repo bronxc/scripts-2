@@ -372,6 +372,7 @@ whitelist_bypass()
   clone https://github.com/Cn33liz/SharpCat
   clone https://github.com/khr0x40sh/WhiteListEvasion
   clone https://github.com/subTee/AllTheThings
+  cloen https://github.com/Ben0xA/AwesomerShell
   clone https://gist.github.com/subTee/0b93971e02bbf564220f 
   clone https://gist.github.com/subTee/7e3f8979eafbe65d63e2
   cd ..

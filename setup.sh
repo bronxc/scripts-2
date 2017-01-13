@@ -507,6 +507,7 @@ clone https://github.com/rvrsh3ll/POSH-Commander
 clone https://github.com/kussic/CS-KickassBot/blob/master/kickassbot.cna
 clone https://github.com/rsmudge/Malleable-C2-Profiles/tree/master/normal
 clone https://github.com/killswitch-GUI/CobaltStrike-ToolKit
+clone https://github.com/mdsecresearch/Publications/blob/master/tools/redteam/cna/eventvwr.cna
 
 cd ..
 mkdir macros

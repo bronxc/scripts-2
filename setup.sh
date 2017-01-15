@@ -398,6 +398,7 @@ clone https://github.com/sensepost/ruler
 clone https://github.com/tfairane/HackStory
 clone https://github.com/funoverip/mcafee-sitelist-pwd-decryption
 clone https://github.com/seastorm/PuttyRider
+clone https://github.com/schierlm/JavaPayload
 mkdir dll_hijack_detect
 cd dll_hijack_detect
 clone https://github.com/adamkramer/dll_hijack_detect

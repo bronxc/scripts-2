@@ -567,6 +567,7 @@ phishing()
 	mkdir phish
 	cd phish
 	clone https://github.com/cheetz/spearphishing
+	clone https://cybersyndicates.com/project/SimplyTemplate/
 	clone https://github.com/Section9Labs/Cartero
 	clone https://gist.github.com/monoxgas/7fec9ec0f3ab405773fc
 	cd ..
@@ -731,6 +732,15 @@ clone https://github.com/MalwareTech/CreateDesktop
 cd ..
 }
 
+exploits()
+{
+mkdir exploits
+cd exploits
+clone https://github.com/foxglovesec/JavaUnserializeExploits
+cd ..
+cd $CURRENT
+}
+
 #usage;
 init;
 prereqs;
@@ -748,6 +758,7 @@ ssl;
 java-setup;
 smb;
 whitelist_bypass;
+exploits;
 post_exploit;
 thpb2;
 egress;

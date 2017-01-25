@@ -691,6 +691,9 @@ defence(){
 	clone https://github.com/theonehiding/ShimCacheCollector
 	clone https://github.com/paralax/awesome-honeypots
 	clone https://github.com/LordNoteworthy/al-khaser
+	clone https://github.com/Neo23x0/Loki
+	clone https://github.com/Neo23x0/Fenrir
+	clone https://github.com/Neo23x0/signature-base
 	cd ..
 	
 }

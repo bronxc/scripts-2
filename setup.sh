@@ -693,7 +693,8 @@ defence(){
 	clone https://github.com/LordNoteworthy/al-khaser
 	clone https://github.com/Neo23x0/Loki
 	clone https://github.com/Neo23x0/Fenrir
-	clone https://github.com/Neo23x0/signature-base
+	clone https://github.com/Neo23x0/signature-base#
+	clone https://github.com/davehull/Kansa
 	cd ..
 	
 }

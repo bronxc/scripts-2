@@ -697,6 +697,7 @@ defence(){
 	clone https://github.com/Neo23x0/Fenrir
 	clone https://github.com/Neo23x0/signature-base#
 	clone https://github.com/davehull/Kansa
+	clone https://github.com/swannman/ircapabilities
 	cd ..
 	
 }

@@ -415,10 +415,12 @@ clone https://github.com/SherifEldeeb/inmet.git
 clone https://github.com/SherifEldeeb/TinyMet.git
 cd ..
 clone https://github.com/iagox86/dnscat2.git
+clone https://github.com/sensepost/DNS-Shell
 clone https://github.com/Cn33liz/Inveigh
 clone https://github.com/Cn33liz/p0wnedShell
 clone https://github.com/Cn33liz/EasySystem
 clone https://github.com/subTee/PoshRat
+clone https://github.com/manwhoami/Bella
 clone https://github.com/cyberisltd/NcatPortable
 clone https://github.com/denandz/KeeFarce
 clone https://github.com/pentestify/competition-modules
@@ -452,6 +454,7 @@ egress()
 	clone https://github.com/ChrisTruncer/Egress-Assess.git
 	clone https://github.com/Shellntel/websocket_egress
 	clone https://github.com/PaulSec/twittor
+	clone https://github.com/sensepost/DNS-Shell
 	cd ..
 	cd $CURRENT
 }

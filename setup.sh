@@ -401,6 +401,7 @@ clone https://github.com/seastorm/PuttyRider
 clone https://github.com/schierlm/JavaPayload
 clone https://github.com/colemination/PowerOutlook
 clone https://github.com/turbo/zero2hero
+clone https://github.com/FuzzySecurity/PowerShell-Suite/tree/master/Bypass-UAC
 mkdir dll_hijack_detect
 cd dll_hijack_detect
 clone https://github.com/adamkramer/dll_hijack_detect

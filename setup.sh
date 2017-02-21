@@ -403,6 +403,7 @@ clone https://github.com/colemination/PowerOutlook
 clone https://github.com/turbo/zero2hero
 clone https://github.com/FuzzySecurity/PowerShell-Suite/tree/master/Bypass-UAC
 clone https://github.com/hfiref0x/UACME
+clone https://github.com/frego/fwshell
 mkdir dll_hijack_detect
 cd dll_hijack_detect
 clone https://github.com/adamkramer/dll_hijack_detect
@@ -743,6 +744,7 @@ clone https://github.com/LordNoteworthy/al-khaser
 clone https://github.com/a0rtega/pafish
 clone https://github.com/BreakingMalwareResearch
 clone https://github.com/MalwareTech/CreateDesktop
+clone https://github.com/frego/Shellcode
 cd ..
 }
 

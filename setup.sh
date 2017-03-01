@@ -708,6 +708,7 @@ defence(){
 	clone https://github.com/davehull/Kansa
 	clone https://github.com/swannman/ircapabilities
 	clone https://github.com/secureworks/dcept
+	clone https://github.com/PaulSec/awesome-windows-domain-hardening
 	cd ..
 	
 }

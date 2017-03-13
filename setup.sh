@@ -711,6 +711,7 @@ defence(){
 	clone https://github.com/PaulSec/awesome-windows-domain-hardening
 	clone https://gist.github.com/Neo23x0/a4b4af9481e01e749409
 	clone https://github.com/papadp/reflective-injection-detection
+	clone https://github.com/singlethreaded/irFARTpull
 	cd ..
 	
 }

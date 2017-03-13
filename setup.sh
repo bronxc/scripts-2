@@ -712,6 +712,7 @@ defence(){
 	clone https://gist.github.com/Neo23x0/a4b4af9481e01e749409
 	clone https://github.com/papadp/reflective-injection-detection
 	clone https://github.com/singlethreaded/irFARTpull
+	clone https://github.com/FuzzySecurity/PowerShell-Suite
 	cd ..
 	
 }
@@ -751,6 +752,7 @@ clone https://github.com/a0rtega/pafish
 clone https://github.com/BreakingMalwareResearch
 clone https://github.com/MalwareTech/CreateDesktop
 clone https://github.com/frego/Shellcode
+clone https://gist.github.com/securitytube/c956348435cc90b8e1f7
 cd ..
 }
 

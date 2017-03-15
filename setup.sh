@@ -260,6 +260,7 @@ tar -xvf nbtscan-source-1.0.35.tgz
 make
 cd ..
 clone https://github.com/ChrisTruncer/EyeWitness.git #eyewitness to scan web servers try default creds and take screenshots
+clone https://github.com/scipag/vulscan
 }
 
 pcsl()

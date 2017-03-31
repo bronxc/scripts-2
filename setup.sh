@@ -596,6 +596,7 @@ lateral()
 	clone https://github.com/cyberisltd/OpenVPN-RAT-Bridge
 	mkdir kerberos
 	clone https://github.com/nidem/kerberoast
+	clone https://github.com/xan7r/kerberoast
 	clone https://github.com/gentilkiwi/kekeo
 	clone https://github.com/rvazarkar/KrbCredExport
 	cd ..

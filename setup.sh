@@ -716,6 +716,7 @@ defence(){
 	clone https://github.com/papadp/reflective-injection-detection
 	clone https://github.com/singlethreaded/irFARTpull
 	clone https://github.com/FuzzySecurity/PowerShell-Suite
+	clone https://github.com/rjhansen/nsrllookup
 	cd ..
 	
 }

@@ -600,6 +600,7 @@ lateral()
 	clone https://github.com/xan7r/kerberoast
 	clone https://github.com/gentilkiwi/kekeo
 	clone https://github.com/rvazarkar/KrbCredExport
+	clone https://github.com/Twi1ight/AD-Pentest-Script
 	cd ..
 	cd ..
 	cd $CURRENT

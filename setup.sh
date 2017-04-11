@@ -583,6 +583,7 @@ phishing()
 	clone https://gist.github.com/monoxgas/7fec9ec0f3ab405773fc
 	clone https://github.com/Mr-Un1k0d3r/CatMyFish
 	clone https://github.com/bmericc/domainhunter
+	clone https://github.com/niravkdesai/haveibeenpwned
 	cd ..
 	cd $CURRENT
 }

@@ -719,6 +719,7 @@ defence(){
 	clone https://github.com/singlethreaded/irFARTpull
 	clone https://github.com/FuzzySecurity/PowerShell-Suite
 	clone https://github.com/rjhansen/nsrllookup
+	clone https://github.com/nccgroup/Cyber-Defence
 	cd ..
 	
 }

@@ -434,6 +434,7 @@ cd windows-exploits
 clone https://github.com/foxglovesec/Potato
 clone https://github.com/Cn33liz/SmashedPotato
 clone https://github.com/GDSSecurity/Windows-Exploit-Suggester.git
+clone https://github.com/rasta-mouse/Sherlock
 cd ..
 cd $CURRENT
 

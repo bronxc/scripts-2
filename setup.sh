@@ -435,6 +435,7 @@ clone https://github.com/foxglovesec/Potato
 clone https://github.com/Cn33liz/SmashedPotato
 clone https://github.com/GDSSecurity/Windows-Exploit-Suggester.git
 clone https://github.com/rasta-mouse/Sherlock
+clone https://github.com/RiskSense-Ops/MS17-010
 cd ..
 cd $CURRENT
 
@@ -721,6 +722,7 @@ defence(){
 	clone https://github.com/FuzzySecurity/PowerShell-Suite
 	clone https://github.com/rjhansen/nsrllookup
 	clone https://github.com/nccgroup/Cyber-Defence
+	clone https://github.com/meirwah/awesome-incident-response 
 	cd ..
 	
 }

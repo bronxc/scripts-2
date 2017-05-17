@@ -479,9 +479,16 @@ cd $CURRENT
 clone https://github.com/sensepost/heartbleed-poc.git
 }
 
-
-
-
+mainframe()
+{
+cd $CURRENT
+mkdir mainframe
+cd mainframe
+clone https://github.com/ayoul3/cicspwn
+clone https://github.com/ayoul3/Privesc
+clone https://github.com/ayoul3/cicsshot
+cd ..
+}
 powershell()
 {
 cd $CURRENT

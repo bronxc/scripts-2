@@ -521,6 +521,8 @@ clone https://github.com/PowerShellEmpire/Empire.git
 clone https://github.com/NetSPI/PowerUpSQL
 clone https://github.com/leechristensen/UnmanagedPowerShell
 clone https://github.com/danielbohannon/Invoke-Obfuscation
+clone https://github.com/vysec/Invoke-CradleCrafter
+clone https://github.com/vysec/Invoke-Phant0m
 
 cd ..
 mkdir cobalt

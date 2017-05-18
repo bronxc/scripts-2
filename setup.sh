@@ -596,6 +596,7 @@ phishing()
 	clone https://github.com/bmericc/domainhunter
 	clone https://github.com/niravkdesai/haveibeenpwned
 	clone https://github.com/vysec/FindFrontableDomains
+	clone https://github.com/vysec/morphHTA
 	cd ..
 	cd $CURRENT
 }

@@ -597,6 +597,7 @@ phishing()
 	clone https://github.com/niravkdesai/haveibeenpwned
 	clone https://github.com/vysec/FindFrontableDomains
 	clone https://github.com/vysec/morphHTA
+	clone https://github.com/n0pe-sled/Postfix-Server-Setup
 	cd ..
 	cd $CURRENT
 }

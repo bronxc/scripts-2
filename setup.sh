@@ -420,6 +420,7 @@ clone https://github.com/SherifEldeeb/inmet.git
 clone https://github.com/SherifEldeeb/TinyMet.git
 cd ..
 clone https://github.com/iagox86/dnscat2.git
+clone https://github.com/lukebaggett/dnscat2-powershell
 clone https://github.com/sensepost/DNS-Shell
 clone https://github.com/Cn33liz/Inveigh
 clone https://github.com/Cn33liz/p0wnedShell

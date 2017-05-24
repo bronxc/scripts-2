@@ -261,6 +261,7 @@ make
 cd ..
 clone https://github.com/ChrisTruncer/EyeWitness.git #eyewitness to scan web servers try default creds and take screenshots
 clone https://github.com/scipag/vulscan
+clone https://github.com/maaaaz/nmaptocsv
 }
 
 pcsl()

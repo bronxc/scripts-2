@@ -407,6 +407,7 @@ clone https://github.com/FuzzySecurity/PowerShell-Suite/tree/master/Bypass-UAC
 clone https://github.com/hfiref0x/UACME
 clone https://github.com/frego/fwshell
 clone https://github.com/Mr-Un1k0d3r/DKMC
+clone https://github.com/p3nt4/PSUnlock
 mkdir dll_hijack_detect
 cd dll_hijack_detect
 clone https://github.com/adamkramer/dll_hijack_detect

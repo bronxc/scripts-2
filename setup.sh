@@ -779,6 +779,7 @@ clone https://github.com/BreakingMalwareResearch
 clone https://github.com/MalwareTech/CreateDesktop
 clone https://github.com/frego/Shellcode
 clone https://gist.github.com/securitytube/c956348435cc90b8e1f7
+clone https://github.com/secrary/InjectProc
 cd ..
 }
 

@@ -739,6 +739,7 @@ defence(){
 	clone https://github.com/rjhansen/nsrllookup
 	clone https://github.com/nccgroup/Cyber-Defence
 	clone https://github.com/meirwah/awesome-incident-response 
+	clone https://github.com/PrometheanInfoSec/cryptolocked-ng
 	cd ..
 	
 }

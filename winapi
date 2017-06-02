@@ -527,7 +527,9 @@ clone https://github.com/leechristensen/UnmanagedPowerShell
 clone https://github.com/danielbohannon/Invoke-Obfuscation
 clone https://github.com/vysec/Invoke-CradleCrafter
 clone https://github.com/vysec/Invoke-Phant0m
-
+clone https://github.com/countercept/doublepulsar-usermode-injector
+clone https://github.com/fullmetalcache/PowerLine
+clone https://github.com/fullmetalcache/PowerStripper
 cd ..
 mkdir cobalt
 clone https://github.com/rvrsh3ll/POSH-Commander
@@ -602,6 +604,7 @@ phishing()
 	clone https://github.com/vysec/FindFrontableDomains
 	clone https://github.com/vysec/morphHTA
 	clone https://github.com/n0pe-sled/Postfix-Server-Setup
+	clone https://github.com/vysec/morphHTA
 	cd ..
 	cd $CURRENT
 }
@@ -781,6 +784,7 @@ clone https://github.com/MalwareTech/CreateDesktop
 clone https://github.com/frego/Shellcode
 clone https://gist.github.com/securitytube/c956348435cc90b8e1f7
 clone https://github.com/secrary/InjectProc
+clone https://github.com/countercept/doublepulsar-usermode-injector
 cd ..
 }
 

@@ -604,7 +604,7 @@ phishing()
 	clone https://github.com/vysec/FindFrontableDomains
 	clone https://github.com/vysec/morphHTA
 	clone https://github.com/n0pe-sled/Postfix-Server-Setup
-	clone https://github.com/vysec/morphHTA
+	clone https://gist.github.com/tomsteele/6275546
 	cd ..
 	cd $CURRENT
 }

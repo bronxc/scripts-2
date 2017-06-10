@@ -541,6 +541,8 @@ clone https://github.com/killswitch-GUI/CobaltStrike-ToolKit
 clone https://github.com/mdsecresearch/Publications/blob/master/tools/redteam/cna/eventvwr.cna
 clone https://github.com/outflankbv/NetshHelperBeacon
 clone https://github.com/bluscreenofjeff/Red-Team-Infrastructure-Wiki
+clone https://github.com/bluscreenofjeff/AggressorScripts
+clone https://github.com/rsmudge/ElevateKit
 cd ..
 mkdir macros
 cd macros

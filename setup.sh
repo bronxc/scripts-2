@@ -408,6 +408,8 @@ clone https://github.com/hfiref0x/UACME
 clone https://github.com/frego/fwshell
 clone https://github.com/Mr-Un1k0d3r/DKMC
 clone https://github.com/p3nt4/PSUnlock
+clone https://github.com/Mr-Un1k0d3r/RC4-PowerShell-RAT
+
 mkdir dll_hijack_detect
 cd dll_hijack_detect
 clone https://github.com/adamkramer/dll_hijack_detect
@@ -786,6 +788,7 @@ clone https://github.com/frego/Shellcode
 clone https://gist.github.com/securitytube/c956348435cc90b8e1f7
 clone https://github.com/secrary/InjectProc
 clone https://github.com/countercept/doublepulsar-usermode-injector
+clone https://github.com/0xd4d/de4dot
 cd ..
 }
 

@@ -378,6 +378,7 @@ whitelist_bypass()
   clone https://gist.github.com/subTee/0b93971e02bbf564220f 
   clone https://gist.github.com/subTee/7e3f8979eafbe65d63e2
   clone https://gist.github.com/subTee/18c66a5827b16426d244afa8ae3ba20a
+  clone https://github.com/subTee/Shellcode-Via-HTA
   cd ..
 }
 

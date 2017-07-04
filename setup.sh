@@ -751,6 +751,7 @@ defence(){
 	clone https://github.com/PrometheanInfoSec/cryptolocked-ng#
 	clone https://github.com/CylanceVulnResearch/ReflectiveDLLRefresher
 	clone https://github.com/ThreatHuntingProject/ThreatHunting
+	clone https://github.com/williballenthin/process-forest
 	cd ..
 	
 }

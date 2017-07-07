@@ -411,6 +411,7 @@ clone https://github.com/frego/fwshell
 clone https://github.com/Mr-Un1k0d3r/DKMC
 clone https://github.com/p3nt4/PSUnlock
 clone https://github.com/Mr-Un1k0d3r/RC4-PowerShell-RAT
+clone https://github.com/stufus/parse-mimikatz-log/blob/master/pml.py
 
 mkdir dll_hijack_detect
 cd dll_hijack_detect
@@ -470,6 +471,7 @@ egress()
 	clone https://github.com/Shellntel/websocket_egress
 	clone https://github.com/PaulSec/twittor
 	clone https://github.com/sensepost/DNS-Shell
+	clone https://github.com/stufus/egresscheck-framework
 	cd ..
 	cd $CURRENT
 }
@@ -752,6 +754,7 @@ defence(){
 	clone https://github.com/CylanceVulnResearch/ReflectiveDLLRefresher
 	clone https://github.com/ThreatHuntingProject/ThreatHunting
 	clone https://github.com/williballenthin/process-forest
+	clone https://github.com/jephthai/OpenPasswordFilter
 	cd ..
 	
 }

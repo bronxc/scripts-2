@@ -412,6 +412,7 @@ clone https://github.com/Mr-Un1k0d3r/DKMC
 clone https://github.com/p3nt4/PSUnlock
 clone https://github.com/Mr-Un1k0d3r/RC4-PowerShell-RAT
 clone https://github.com/stufus/parse-mimikatz-log/blob/master/pml.py
+clone https://github.com/PowerShell/PowerShell
 
 mkdir dll_hijack_detect
 cd dll_hijack_detect

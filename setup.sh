@@ -800,7 +800,7 @@ clone https://github.com/secrary/InjectProc
 clone https://github.com/countercept/doublepulsar-usermode-injector
 clone https://github.com/0xd4d/de4dot
 clone https://github.com/zerosum0x0/ThreadContinue
-
+clone https://github.com/0xd4d/dnSpy
 cd ..
 }
 

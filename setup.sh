@@ -548,6 +548,11 @@ clone https://github.com/outflankbv/NetshHelperBeacon
 clone https://github.com/bluscreenofjeff/Red-Team-Infrastructure-Wiki
 clone https://github.com/bluscreenofjeff/AggressorScripts
 clone https://github.com/rsmudge/ElevateKit
+clone https://github.com/mdsecactivebreach/CACTUSTORCH
+clone https://github.com/Mr-Un1k0d3r/RedTeamPowershellScripts
+clone https://github.com/bluscreenofjeff/AggressorScripts
+clone https://github.com/ZonkSec/persistence-aggressor-script
+
 cd ..
 mkdir macros
 cd macros

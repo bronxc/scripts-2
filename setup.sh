@@ -361,6 +361,7 @@ clone https://github.com/Raikia/CredNinja
 clone https://github.com/ChrisTruncer/WMIOps
 clone https://github.com/adaptivethreat/BloodHound
 clone https://github.com/ctxis/wsuspect-proxy
+clone https://github.com/3gstudent/Smbtouch-Scanner
 cd ..
 }
 

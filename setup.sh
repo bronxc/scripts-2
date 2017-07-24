@@ -554,6 +554,7 @@ clone https://github.com/mdsecactivebreach/CACTUSTORCH
 clone https://github.com/Mr-Un1k0d3r/RedTeamPowershellScripts
 clone https://github.com/bluscreenofjeff/AggressorScripts
 clone https://github.com/ZonkSec/persistence-aggressor-script
+clone https://github.com/Und3rf10w/Aggressor-scripts
 
 cd ..
 mkdir macros

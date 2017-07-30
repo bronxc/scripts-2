@@ -815,6 +815,7 @@ clone https://github.com/OpenSecurityResearch/dllinjector
 clone https://github.com/fdiskyou/injectAllTheThings/tree/master/injectAllTheThings
 clone https://github.com/fancycode/MemoryModule
 clone https://github.com/brandonprry/wicked_cool_shell_scripts_2e
+clone https://github.com/monoxgas/sRDI
 cd ..
 
 }

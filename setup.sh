@@ -475,6 +475,7 @@ egress()
 	clone https://github.com/PaulSec/twittor
 	clone https://github.com/sensepost/DNS-Shell
 	clone https://github.com/stufus/egresscheck-framework
+	clone https://github.com/zerosum0x0/koadic
 	cd ..
 	cd $CURRENT
 }

@@ -817,6 +817,7 @@ clone https://github.com/fdiskyou/injectAllTheThings/tree/master/injectAllTheThi
 clone https://github.com/fancycode/MemoryModule
 clone https://github.com/brandonprry/wicked_cool_shell_scripts_2e
 clone https://github.com/monoxgas/sRDI
+clone https://github.com/zerosum0x0/defcon-25-workshop
 cd ..
 
 }

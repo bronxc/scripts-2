@@ -415,6 +415,7 @@ clone https://github.com/Mr-Un1k0d3r/RC4-PowerShell-RAT
 clone https://github.com/stufus/parse-mimikatz-log/blob/master/pml.py
 clone https://github.com/PowerShell/PowerShell
 clone https://github.com/3gstudent/Smallp0wnedShell
+clone https://github.com/chango77747/AdEnumerator
 
 mkdir dll_hijack_detect
 cd dll_hijack_detect

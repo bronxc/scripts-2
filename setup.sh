@@ -624,6 +624,7 @@ phishing()
 	clone https://github.com/vysec/morphHTA
 	clone https://github.com/n0pe-sled/Postfix-Server-Setup
 	clone https://gist.github.com/tomsteele/6275546
+	clone https://github.com/nccgroup/demiguise
 	cd ..
 	cd $CURRENT
 }

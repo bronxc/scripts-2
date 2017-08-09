@@ -541,6 +541,7 @@ clone https://github.com/vysec/Invoke-Phant0m
 clone https://github.com/countercept/doublepulsar-usermode-injector
 clone https://github.com/fullmetalcache/PowerLine
 clone https://github.com/fullmetalcache/PowerStripper
+clone https://github.com/whitehat-zero/PowEnum
 cd ..
 mkdir cobalt
 clone https://github.com/rvrsh3ll/POSH-Commander

@@ -354,7 +354,8 @@ mkdir smb-tools
 cd smb-tools
 info "Smb tools, responder, smbexec etc.."
 clone https://github.com/brav0hax/smbexec.git
-clone https://github.com/SpiderLabs/Responder.git
+clone https://github.com/lgandx/Responder
+clone https://github.com/lgandx/PCredz
 clone https://github.com/mubix/FakeNetBIOS
 clone https://github.com/byt3bl33d3r/CrackMapExec
 clone https://github.com/Raikia/CredNinja

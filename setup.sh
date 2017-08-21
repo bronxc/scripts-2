@@ -771,6 +771,7 @@ defence(){
 	clone https://github.com/williballenthin/process-forest
 	clone https://github.com/jephthai/OpenPasswordFilter
 	clone https://github.com/shjalayeri/MCEDP
+	clone https://github.com/Cyb3rWard0g/ThreatHunter-Playbook
 	cd ..
 	
 }

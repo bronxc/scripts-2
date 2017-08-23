@@ -543,6 +543,7 @@ clone https://github.com/countercept/doublepulsar-usermode-injector
 clone https://github.com/fullmetalcache/PowerLine
 clone https://github.com/fullmetalcache/PowerStripper
 clone https://github.com/whitehat-zero/PowEnum
+clone https://github.com/p3nt4/PowerShdll
 cd ..
 mkdir cobalt
 clone https://github.com/rvrsh3ll/POSH-Commander

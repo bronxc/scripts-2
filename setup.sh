@@ -560,6 +560,9 @@ clone https://github.com/Mr-Un1k0d3r/RedTeamPowershellScripts
 clone https://github.com/bluscreenofjeff/AggressorScripts
 clone https://github.com/ZonkSec/persistence-aggressor-script
 clone https://github.com/Und3rf10w/Aggressor-scripts
+clone https://github.com/vysec/AggressorScripts-1
+clone https://github.com/vysec/DomainFrontingLists
+
 
 cd ..
 mkdir macros
@@ -625,6 +628,7 @@ phishing()
 	clone https://github.com/niravkdesai/haveibeenpwned
 	clone https://github.com/vysec/FindFrontableDomains
 	clone https://github.com/vysec/morphHTA
+	clone https://github.com/vysec/genHTA
 	clone https://github.com/n0pe-sled/Postfix-Server-Setup
 	clone https://gist.github.com/tomsteele/6275546
 	clone https://github.com/nccgroup/demiguise

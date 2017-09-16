@@ -633,6 +633,7 @@ phishing()
 	clone https://gist.github.com/tomsteele/6275546
 	clone https://github.com/nccgroup/demiguise
 	clone https://github.com/Arvanaghi/CheckPlease
+	clone https://github.com/n0pe-sled/Apache2-Mod-Rewrite-Setup
 	cd ..
 	cd $CURRENT
 }

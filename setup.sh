@@ -562,6 +562,7 @@ clone https://github.com/ZonkSec/persistence-aggressor-script
 clone https://github.com/Und3rf10w/Aggressor-scripts
 clone https://github.com/vysec/AggressorScripts-1
 clone https://github.com/vysec/DomainFrontingLists
+clone https://github.com/Mr-Un1k0d3r/PowerLessShell.git
 
 
 cd ..

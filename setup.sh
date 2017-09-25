@@ -575,6 +575,7 @@ clone https://github.com/enigma0x3/Generate-Macro.git
 clone https://github.com/enigma0x3/PowershellProfile.git
 clone https://github.com/enigma0x3/Powershell-C2.git
 clone https://github.com/khr0x40sh/MacroShop
+clone https://github.com/Mr-Un1k0d3r/MaliciousMacroGenerator
 cd ..
 cd $CURRENT
 }
